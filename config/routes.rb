@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: "root#index"
-  resources :articles, except: :index
+  devise_for :users
+  root to: "pages#home"
 end
