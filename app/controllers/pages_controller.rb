@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   end
 
   def user_show
-    
+
+  end
+
+  def index
+    @users = User.all
   end
 end
