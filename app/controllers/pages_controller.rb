@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def user_show
-    
+  def show
+    @user = User.find(params[:id])
   end
 end
