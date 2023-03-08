@@ -92,3 +92,7 @@
 .searchbar_button:hover{
   color: #F8F8F8
 }
+
+input[type="search"] {
+  outline: none !important;
+}
