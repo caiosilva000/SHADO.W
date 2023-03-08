@@ -1,3 +1,15 @@
+#no-bg-box-show {
+  background-color: #272D35;
+  width: 153px;
+}
+
+
+// CONTAINER
+
+.background-show {
+  background-color: #0E131A;
+}
+
 // PROFILE CARD
 
 .cards-show {
@@ -8,6 +20,7 @@
   border-radius: 20px;
   margin-left: 0px;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .profile-infos-show {
@@ -78,6 +91,7 @@
   justify-content: space-around;
   align-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .boxes-grid-show {
