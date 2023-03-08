@@ -1,0 +1,53 @@
+
+<div class ="dashboard-container">
+
+  <div class="left-side">
+    <div class ="sidebar">
+              <div class="sidebar__links">
+                <%= link_to root_path, class: "nav-link" do %>
+                 <i class="fa-solid fa-user"></i><p>Profile</p>
+                <% end %>
+                <%= link_to root_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-house"></i><p> Dashboard</p>
+                <% end %>
+                <%= link_to root_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-message"></i><p> Messages</p>
+                <% end %>
+                <%= link_to root_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-money-check"></i><p> Payments</p>
+                <% end %>
+              </div>
+
+              <div class="sidebar__userlinks">
+                <div>
+                  <%= link_to root_path, class: "nav-link" do %>
+                    <i class="fa-solid fa-gear"></i><p> Settings</p>
+                  <% end %>
+                    <%= link_to root_path, class: "nav-link" do %>
+                   <i class="fa-solid fa-right-from-bracket"></i><p> Log Out</p>
+                  <% end %>
+                </div>
+            </div>
+    </div>
+
+    <div class="bottom_box">
+        <p>Upgrade to Pro</p>
+      </div>
+    </div>
+
+
+  <div class="right-side">
+        <div class="search_top">
+          <input type="text" class="searchbar" placeholder ="Tap here to search">
+
+
+        <div class="searchbar_button">
+        <i class="fa-solid fa-message"></i>
+        </div>
+
+        <div class="searchbar_button">
+        <i class="fa-solid fa-bell"></i>
+        </div>
+          </div>
+  </div>
+</div>
