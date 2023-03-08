@@ -77,4 +77,5 @@ group :test do
   gem "webdrivers"
 end
 
-
+gem "webpacker"
+gem "bootstrap"
