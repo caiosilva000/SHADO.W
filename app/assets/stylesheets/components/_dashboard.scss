@@ -1,14 +1,14 @@
 
-.dashboard-container{
+.dashboard_container{
   display: flex;
   background-color: black;
 }
 
-.left-side {
+.left_side {
   width: 15vw;
 }
 
-.right-side {
+.right_side {
   width: 80vw;
 }
 
@@ -25,21 +25,26 @@
   padding: 20px;
 }
 
-.sidebar__links{
+.sidebar_links{
   height: 60%;
 }
 
-.sidebar__userlinks{
+.sidebar_userlinks{
   display: flex;
   flex-direction: column;
   border-top: 1px solid #C4C4C4;
   height: 40%;
   justify-content: center;
-
 }
+
+.nav-link:hover{
+  color: whitesmoke;
+}
+
 
 .bottom_box{
   display: flex;
+  align-items: center;
   justify-content: center;
   height: 20vh;
   width: 100%;
@@ -76,4 +81,8 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
+}
+
+.searchbar_button:hover{
+  color: whitesmoke;
 }

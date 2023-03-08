@@ -1,9 +1,9 @@
 
-<div class ="dashboard-container">
+<div class ="dashboard_container">
 
-  <div class="left-side">
+  <div class="left_side">
     <div class ="sidebar">
-              <div class="sidebar__links">
+              <div class="sidebar_links">
                 <%= link_to root_path, class: "nav-link" do %>
                  <i class="fa-solid fa-user"></i><p>Profile</p>
                 <% end %>
@@ -18,12 +18,12 @@
                 <% end %>
               </div>
 
-              <div class="sidebar__userlinks">
+              <div class="sidebar_userlinks">
                 <div>
                   <%= link_to root_path, class: "nav-link" do %>
                     <i class="fa-solid fa-gear"></i><p> Settings</p>
                   <% end %>
-                    <%= link_to root_path, class: "nav-link" do %>
+                    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
                    <i class="fa-solid fa-right-from-bracket"></i><p> Log Out</p>
                   <% end %>
                 </div>
@@ -36,7 +36,7 @@
     </div>
 
 
-  <div class="right-side">
+  <div class="right_side">
         <div class="search_top">
           <input type="text" class="searchbar" placeholder ="Tap here to search">
 
