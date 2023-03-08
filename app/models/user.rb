@@ -18,6 +18,7 @@ class User < ApplicationRecord
     unless user
       user = User.create(
         email: data['email'],
+        user_name: data['name'], # Add this line to save the username
         password: Devise.friendly_token[0,20]
       )
     end
@@ -29,4 +30,5 @@ class User < ApplicationRecord
 
     user
   end
+
 end
