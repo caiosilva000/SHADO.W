@@ -1,7 +1,7 @@
 
 .dashboard_container{
   display: flex;
-  background-color: black;
+  background: linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49));
 }
 
 .left_side {
@@ -38,7 +38,7 @@
 }
 
 .nav-link:hover{
-  color: whitesmoke;
+  color: #F8F8F8;
 }
 
 
@@ -68,6 +68,7 @@
   background: #272D35;
   color: #C4C4C4;
   margin-left: 10%;
+  border: none;
 }
 
 .searchbar_button {
@@ -81,8 +82,9 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .searchbar_button:hover{
-  color: whitesmoke;
+  color: #F8F8F8
 }

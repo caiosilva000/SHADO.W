@@ -38,16 +38,16 @@
 
   <div class="right_side">
         <div class="search_top">
-          <input type="text" class="searchbar" placeholder ="Tap here to search">
+          <input type="search" class="searchbar" placeholder ="Tap here to search">
 
 
-        <div class="searchbar_button">
-        <i class="fa-solid fa-message"></i>
+          <%= link_to root_path, class: "searchbar_button" do %>
+            <i class="fa-solid fa-message"></i>
+          <% end %>
+
+          <%= link_to root_path, class: "searchbar_button" do %>
+            <i class="fa-solid fa-bell"></i>
+          <% end %>
         </div>
-
-        <div class="searchbar_button">
-        <i class="fa-solid fa-bell"></i>
-        </div>
-          </div>
   </div>
 </div>
