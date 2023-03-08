@@ -23,7 +23,6 @@ puts "Creating Users"
 end
 puts "Creating Seniors"
 
-
 3.times do |i|
   User.create!(
     email: "user#{i+10}@example.com",
