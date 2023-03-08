@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   root to: "pages#index"
   get '/users', to: 'pages#index'
   get '/auth/:provider/callback', to: 'github_auth#github'
-
 end
