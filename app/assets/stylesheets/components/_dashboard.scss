@@ -1,6 +1,7 @@
 
 .dashboard-container{
   display: flex;
+  background-color: black;
 }
 
 .left-side {
@@ -49,24 +50,30 @@
   padding: 20px;
 }
 
-.searchfield_inner{
-  width: 20%;
-  height: 10vh;
+.search_top{
+  display: flex;
+}
+
+.searchbar{
+  width: 40%;
+  height: 5vh;
   margin: 20px;
   border-radius: 20px;
   padding: 25px 30px;
   background: #272D35;
   color: #C4C4C4;
+  margin-left: 10%;
 }
 
-.searchbar__button {
-  width: 90x;
-  height: 50px;
+.searchbar_button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
   background: #272D35;
-  border-radius: 20px;
-}
-
-.log_out{
-  text-decoration: none;
   color: #C4C4C4;
+  border-radius: 20px;
+  width: 5%;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
 }

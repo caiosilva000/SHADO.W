@@ -1,13 +1,8 @@
-<%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-
 
 <div class ="dashboard-container">
 
   <div class="left-side">
     <div class ="sidebar">
-
-
-
               <div class="sidebar__links">
                 <%= link_to root_path, class: "nav-link" do %>
                  <i class="fa-solid fa-user"></i><p>Profile</p>
@@ -36,24 +31,23 @@
     </div>
 
     <div class="bottom_box">
-      <p>Upgrade to Pro</p>
+        <p>Upgrade to Pro</p>
+      </div>
     </div>
-  </div>
 
 
   <div class="right-side">
-    <div class="searchfield">
-        <div class="searchbar">
-          <input type="text" class="searchfield_inner" placeholder ="Tap here to search">
+        <div class="search_top">
+          <input type="text" class="searchbar" placeholder ="Tap here to search">
+
+
+        <div class="searchbar_button">
+        <i class="fa-solid fa-message"></i>
         </div>
 
-        <div class="searchbar__button btn btn-primary">
+        <div class="searchbar_button">
+        <i class="fa-solid fa-bell"></i>
         </div>
-
-        <div class="searchbar__button btn btn-success">
-        </div>
-    </div>
+          </div>
   </div>
-
-
 </div>
