@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "pages#home"
-
-  get "users/:id", to: "pages#show", as: :show
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  root to: "pages#index"
+  get '/users', to: 'pages#index'
+  get '/auth/:provider/callback', to: 'github_auth#github'
 end

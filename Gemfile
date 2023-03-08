@@ -79,3 +79,5 @@ end
 
 gem "webpacker"
 gem "bootstrap"
+gem 'omniauth-github'
+gem "omniauth-rails_csrf_protection"
