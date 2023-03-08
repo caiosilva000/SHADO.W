@@ -6,30 +6,31 @@
   <div class="left-side">
     <div class ="sidebar">
 
+
+
               <div class="sidebar__links">
                 <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-regular fa-house-blank"></i><p> Dashboard</p>
+                 <i class="fa-solid fa-user"></i><p>Profile</p>
                 <% end %>
                 <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-regular fa-house-blank"></i><p> Profile</p>
+                  <i class="fa-solid fa-house"></i><p> Dashboard</p>
                 <% end %>
                 <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-regular fa-house-blank"></i><p> Messages</p>
+                  <i class="fa-solid fa-message"></i><p> Messages</p>
                 <% end %>
                 <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-regular fa-house-blank"></i><p> Payments</p>
+                  <i class="fa-solid fa-money-check"></i><p> Payments</p>
                 <% end %>
               </div>
 
               <div class="sidebar__userlinks">
-                <div class="links__item">
+                <div>
                   <%= link_to root_path, class: "nav-link" do %>
-                    <i class="fa-regular fa-house-blank"></i><p> Settings</p>
+                    <i class="fa-solid fa-gear"></i><p> Settings</p>
                   <% end %>
-                </div>
-
-                <div class="links__item">
-                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+                    <%= link_to root_path, class: "nav-link" do %>
+                   <i class="fa-solid fa-right-from-bracket"></i><p> Log Out</p>
+                  <% end %>
                 </div>
             </div>
     </div>

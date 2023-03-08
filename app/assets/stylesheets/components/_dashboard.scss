@@ -1,29 +1,3 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: #272D35;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-
-// .sidebar {
-// width: 207px;
-// position: fixed;
-// height: 603px;
-// left: 0px;
-// top: 0px;
-// background: #272D35;
-// margin: 20px;
-// // text-align: center;
-// padding: 20px;
-// border-radius: 20px;
-// }
 
 .dashboard-container{
   display: flex;
@@ -38,13 +12,11 @@
 }
 
 .sidebar{
-
   margin: 20px;
   width: 100%;
   height: 75vh;
   left: 0px;
   top: 0px;
-
   background: #272D35;
   border-radius: 20px;
   color: #C4C4C4;
@@ -66,36 +38,24 @@
 }
 
 .bottom_box{
+  display: flex;
+  justify-content: center;
   height: 20vh;
   width: 100%;
   margin: 20px;
   background: #272D35;
   border-radius: 20px;
   color: #C4C4C4;
-  text-align: center;
   padding: 20px;
 }
 
-.sidebar__box {
-  margin: 20px;
-  width: 207px;
-  height: 150px;
-  left: 0px;
-  top: 0px;
-
-  background: #272D35;
-  border-radius: 20px;
-  text-align: center;
-  color: #C4C4C4;
-}
-
-
 .searchfield_inner{
-  background: #272D35;
+  width: 20%;
+  height: 10vh;
+  margin: 20px;
   border-radius: 20px;
   padding: 25px 30px;
-  width: 577px;
-  height: 50px;
+  background: #272D35;
   color: #C4C4C4;
 }
 
@@ -104,4 +64,9 @@
   height: 50px;
   background: #272D35;
   border-radius: 20px;
+}
+
+.log_out{
+  text-decoration: none;
+  color: #C4C4C4;
 }
