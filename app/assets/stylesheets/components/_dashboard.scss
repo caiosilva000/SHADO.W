@@ -1,3 +1,5 @@
+// CONTAINER and SCREEN SIDES
+
 .dashboard_container{
   display: flex;
   background: linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49));
@@ -10,6 +12,8 @@
 .right_side {
   width: 80vw;
 }
+
+// NAVBAR
 
 .sidebar{
   margin: 20px;
@@ -56,6 +60,8 @@
   opacity: 0.8;
 }
 
+// SEARCHBAR
+
 .search_top{
   display: flex;
 }
@@ -68,7 +74,7 @@
   padding: 25px 30px;
   background: #272D35;
   color: #C4C4C4;
-  margin-left: 10%;
+  margin-left: 15%;
   border: none;
   opacity: 0.8;
 }
@@ -96,6 +102,8 @@ input[type="search"] {
   color: #F8F8F8
 }
 
+// LOGO
+
 .logo{
   color: #C4C4C4;
   margin: 20px;
@@ -103,5 +111,5 @@ input[type="search"] {
 
 .logo:hover{
   color: #272D35;
-  transition: 2,5s;
+  transition: all 0.5s linear;
 }
