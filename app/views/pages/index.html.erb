@@ -1,15 +1,5 @@
 <h1>USER INDEX</h1>
 
 <ul>
-  <% @users.each do |user| %>
-    <li>
-      <strong><%= user.user_name %></strong> (<%= user.email %>)<br>
-      <img src="<%= user.profile_pic %>" width="100"><br>
-      <%= user.bio %><br>
-      Location: <%= user.location %><br>
-      Stack: <%= user.my_stack %><br>
-      Senior: <%= user.senior ? 'Yes' : 'No' %>
-    </li>
-  <% end %>
+
 </ul>
- 
