@@ -68,6 +68,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'pry-rails'
 end
 
 group :test do
@@ -84,4 +85,4 @@ gem 'omniauth-github'
 gem "omniauth-rails_csrf_protection"
 gem 'octokit'
 gem 'faraday-retry'
-
+gem "pg_search"
