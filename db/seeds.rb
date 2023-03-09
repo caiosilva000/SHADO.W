@@ -17,8 +17,7 @@ puts "Creating Users"
     password_confirmation: "password",
     user_name: "user#{i+1}",
     profile_pic: "https://picsum.photos/200",
-    bio: "This is the bio for user#{i+1}",
-    location: "Location #{i+1}"
+
   )
 end
 puts "Creating Seniors"
@@ -30,9 +29,6 @@ puts "Creating Seniors"
     password_confirmation: "password",
     user_name: "user#{i+10}",
     profile_pic: "https://picsum.photos/200",
-    bio: "This is the bio for user#{i+10}",
-    location: "Location #{i+10}",
-    senior: true
   )
 end
 # Create 10 users with default password "password" and random senior status

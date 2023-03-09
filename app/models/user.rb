@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :messages
   has_many :reviews, through: :bookings
+  validates :user_name, presence: true
+  validates :profile_pic, presence: true
+  has_many :contributions
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
@@ -18,17 +21,18 @@ class User < ApplicationRecord
     unless user
       user = User.create(
         email: data['email'],
-        user_name: data['name'], # Add this line to save the username
+        user_name: data['name'],
         password: Devise.friendly_token[0,20]
       )
     end
 
-    # Fetch the profile picture if available and save it to the user's profile_pic attribute
-    if access_token.info.image.present?
-      user.update(profile_pic: access_token.info.image)
-    end
+    user.update(
+      access_token: access_token.credentials.token,
+      profile_pic: access_token.info.image.presence || user.profile_pic,
+      github_uid: access_token.uid,
+      github_nickname: data['nickname'] # Add this line to store the GitHub nickname in a new variable
+    )
 
     user
   end
-
 end
