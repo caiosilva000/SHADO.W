@@ -1,11 +1,23 @@
-<h1>USER INDEX</h1>
-
-<ul>
+<ul  class="index_list">
   <% @users.each do |user| %>
     <li>
-      <strong><%= user.user_name %></strong> (<%= user.email %>)<br>
-      <img src="<%= user.profile_pic %>" width="100"><br>
-  
+      <div class="container">
+        <div class="d-flex justify-content-center pt-5">
+        <%= link_to root_path, style: 'text-decoration: none;' do %>
+          <div class="d-flex cards-show">
+            <div class="d-flex profile-infos-show">
+
+              <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+
+              <h4 class="profile-name-show"><strong><%= user.user_name %></strong> </h4>
+            </div>
+            <div class="bio-box-show">
+              <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </li>
   <% end %>
 </ul>
