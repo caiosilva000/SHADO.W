@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_082531) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_133959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,9 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_082531) do
     t.bigint "booker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "availabilities_id", null: false
     t.bigint "availability_id", null: false
-    t.index ["availabilities_id"], name: "index_bookings_on_availabilities_id"
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
     t.index ["bookee_id"], name: "index_bookings_on_bookee_id"
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
@@ -94,12 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_082531) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "user_name"
-    t.text "profile_pic"
-    t.text "bio"
-    t.string "location"
-    t.string "my_stack"
-    t.boolean "senior"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -109,13 +101,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_082531) do
     t.string "access_token"
     t.string "github_nickname"
     t.integer "contributions"
+    t.string "user_name"
+    t.string "profile_pic"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "availabilities", "users"
   add_foreign_key "bookings", "availabilities"
-  add_foreign_key "bookings", "availabilities", column: "availabilities_id"
   add_foreign_key "bookings", "users", column: "bookee_id"
   add_foreign_key "bookings", "users", column: "booker_id"
   add_foreign_key "chatrooms", "users", column: "junior_id"
