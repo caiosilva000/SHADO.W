@@ -74,6 +74,10 @@
   opacity: 0.8;
 }
 
+input[type="search"] {
+  outline: none !important;
+}
+
 .searchbar_button {
   text-align: center;
   display: flex;
@@ -93,6 +97,12 @@
   color: #F8F8F8
 }
 
-input[type="search"] {
-  outline: none !important;
+.logo{
+  color: #C4C4C4;
+  margin: 20px;
+}
+
+.logo:hover{
+  color: #272D35;
+  transition: 2,5s;
 }
