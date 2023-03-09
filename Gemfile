@@ -83,3 +83,4 @@ gem "bootstrap"
 gem 'omniauth-github'
 gem "omniauth-rails_csrf_protection"
 gem 'octokit'
+gem 'faraday-retry'
