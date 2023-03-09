@@ -1,3 +1,5 @@
+// CONTAINER and SCREEN SIDES
+
 .dashboard_container{
   display: flex;
   background: linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49));
@@ -10,6 +12,8 @@
 .right_side {
   width: 80vw;
 }
+
+// NAVBAR
 
 .sidebar{
   margin: 20px;
@@ -56,6 +60,8 @@
   opacity: 0.8;
 }
 
+// SEARCHBAR
+
 .search_top{
   display: flex;
 }
@@ -95,6 +101,8 @@ input[type="search"] {
 .searchbar_button:hover{
   color: #F8F8F8
 }
+
+// LOGO
 
 .logo{
   color: #C4C4C4;
