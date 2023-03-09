@@ -21,6 +21,7 @@
   height: 120px;
   margin-top: 29px;
   margin-left: 10px;
+  width: 100px;
 
   .profile-pic-show {
     border-radius: 50%;
@@ -86,7 +87,7 @@
   align-content: center;
   align-items: center;
   margin: 10px;
-  opacity: 0.4;
+  opacity: 0.9;
 }
 
 .boxes-grid-show {
@@ -108,4 +109,9 @@
     justify-content: center;
     color: white;
   }
+}
+
+.index_list{
+  list-style-type: none;
+  text-decoration: none;
 }
