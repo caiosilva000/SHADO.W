@@ -98,8 +98,6 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
-    d3_rails (4.1.1)
-      railties (>= 3.1.0)
     date (3.3.3)
     debug (1.7.1)
       irb (>= 1.5.0)
@@ -120,6 +118,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    faraday-retry (2.1.0)
+      faraday (~> 2.0)
     ffi (1.15.5)
     font-awesome-sass (6.3.0)
       sassc (~> 2.0)
@@ -313,10 +313,10 @@ DEPENDENCIES
   bootsnap
   bootstrap
   capybara
-  d3_rails
   debug
   devise
   dotenv-rails
+  faraday-retry
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
