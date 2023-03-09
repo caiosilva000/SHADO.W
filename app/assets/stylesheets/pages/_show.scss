@@ -1,0 +1,116 @@
+#no-bg-box-show {
+  background-color: #272D35;
+  width: 153px;
+}
+
+
+// CONTAINER
+
+.background-show {
+  background-color: #0E131A;
+}
+
+// PROFILE CARD
+
+.cards-show {
+  height: 250px;
+  width: 900px;
+  background-color: #272D35;
+  padding: 38px;
+  border-radius: 20px;
+  margin-left: 0px;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.profile-infos-show {
+  height: 120px;
+  margin-top: 29px;
+  margin-left: 10px;
+
+  .profile-pic-show {
+    border-radius: 50%;
+  }
+  .profile-name-show {
+    margin-top: 45px;
+    margin-left: 29px;
+    color: white;
+  }
+}
+
+
+.bio-box-show {
+  background-color: #05595B;
+  border-radius: 20px;
+  width: 450px;
+  height: 150px;
+  margin-top: 14px;
+  margin-right: 13px;
+  color: white;
+
+  .bio-text-show {
+    padding: 23px;
+  }
+}
+
+// STATS BUTTONS
+
+.stats-btns-box-show{
+  width: 450;
+  color: white;
+
+  .btns-single-show {
+    background-color: #05595B;
+    margin: 16px;
+    width: 123px;
+    border-radius: 10px;
+    justify-content: center;
+
+  .btn-text-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding: 7px;
+  }
+  }
+}
+
+// OTHER CARDS
+
+.cards-grid-show {
+  height: 250px;
+  width: 900px;
+  background-color: #272D35;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+  padding: 46px;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.boxes-grid-show {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  background-color: #05595B;
+  justify-content: center;
+
+
+  .boxes-content-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding: 7px;
+    justify-content: center;
+    color: white;
+  }
+}
