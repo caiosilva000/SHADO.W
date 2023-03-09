@@ -3,13 +3,6 @@
   width: 153px;
 }
 
-
-// CONTAINER
-
-.background-show {
-  background-color: #0E131A;
-}
-
 // PROFILE CARD
 
 .cards-show {
@@ -21,6 +14,7 @@
   margin-left: 0px;
   justify-content: space-between;
   margin: 10px;
+  opacity: 0.9;
 }
 
 .profile-infos-show {
@@ -92,6 +86,7 @@
   align-content: center;
   align-items: center;
   margin: 10px;
+  opacity: 0.4;
 }
 
 .boxes-grid-show {

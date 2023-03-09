@@ -11,10 +11,15 @@
   </head>
 
     <body>
-    <%= render "shared/dashboard" %>
     <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
+    <% if devise_controller? %>
+      <%= yield %>
+    <% else %>
+      <%= render "shared/dashboard" do %>
+        <%= yield %>
+      <% end %>
+    <% end %>
 
-    <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
