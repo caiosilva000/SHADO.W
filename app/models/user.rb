@@ -35,4 +35,11 @@ class User < ApplicationRecord
 
     user
   end
+
+  include PgSearch::Model
+  pg_search_scope :search_users,
+  against: [ :user_name ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
