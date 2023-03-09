@@ -1,3 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+#heatmap {
+  width: 210px;
+  height: 235.9px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

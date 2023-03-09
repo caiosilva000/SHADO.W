@@ -4,18 +4,22 @@
       <div class="container">
         <div class="d-flex justify-content-center pt-5">
         <%= link_to root_path, style: 'text-decoration: none;' do %>
-          <div class="d-flex cards-show">
+          <div class=" cards-show">
             <div class="d-flex profile-infos-show">
-
               <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+              <div id="heatmap" >
+              <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= ⁄"" >
 
-              <h4 class="profile-name-show"><strong><%= user.user_name %> <%= user.github_nickname %></strong></h4>
-            </div>
-            <div class="bio-box-show">
+
+            <%# <div class="bio-box-show">
               <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
-            </div>
+            </div> %>
           </div>
         </div>
+       <h4 class="profile-name-show text-left">
+       <strong style="padding: 18px;"><%= user.user_name %>
+       </strong></h4>
+
       </div>
       <% end %>
     </li>
