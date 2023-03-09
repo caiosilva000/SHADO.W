@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :messages
   has_many :reviews, through: :bookings
-  validates :user_name, presence: true
-  validates :profile_pic, presence: true
+  # validates :user_name, presence: true
+  # validates :profile_pic, presence: true
   has_many :contributions
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
@@ -35,4 +35,11 @@ class User < ApplicationRecord
 
     user
   end
+
+  include PgSearch::Model
+  pg_search_scope :search_users,
+  against: [ :user_name ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

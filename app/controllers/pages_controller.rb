@@ -4,10 +4,15 @@ class PagesController < ApplicationController
   end
 
   def show
-   
+
   end
 
   def index
-    @users = User.all
+    if params[:query].present?
+      sql_query = "user_name ILIKE :query OR github_nickname ILIKE :query"
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = User.all
+    end
   end
 end
