@@ -10,9 +10,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+    <body>
+    <%= render "shared/flashes" %>
+    <% if devise_controller? %>
+      <%= yield %>
+    <% else %>
+      <%= render "shared/dashboard" do %>
+        <%= yield %>
+      <% end %>
+    <% end %>
 
-    <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

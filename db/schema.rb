@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_113922) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_133959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_113922) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "github_uid"
+    t.string "access_token"
+    t.string "github_nickname"
+    t.integer "contributions"
+    t.string "user_name"
+    t.string "profile_pic"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
