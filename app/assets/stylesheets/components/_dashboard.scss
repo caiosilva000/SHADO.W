@@ -1,7 +1,7 @@
 
 .dashboard_container{
   display: flex;
-  background-color: black;
+  background: linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49));
 }
 
 .left_side {
@@ -23,6 +23,7 @@
   color: #C4C4C4;
   text-align: center;
   padding: 20px;
+  opacity: 0.9;
 }
 
 .sidebar_links{
@@ -38,7 +39,7 @@
 }
 
 .nav-link:hover{
-  color: whitesmoke;
+  color: #F8F8F8;
 }
 
 
@@ -53,6 +54,7 @@
   border-radius: 20px;
   color: #C4C4C4;
   padding: 20px;
+  opacity: 0.8;
 }
 
 .search_top{
@@ -68,6 +70,12 @@
   background: #272D35;
   color: #C4C4C4;
   margin-left: 10%;
+  border: none;
+  opacity: 0.8;
+}
+
+input[type="search"] {
+  outline: none !important;
 }
 
 .searchbar_button {
@@ -81,8 +89,20 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .searchbar_button:hover{
-  color: whitesmoke;
+  color: #F8F8F8
+}
+
+.logo{
+  color: #C4C4C4;
+  margin: 20px;
+}
+
+.logo:hover{
+  color: #272D35;
+  transition: 2,5s;
 }

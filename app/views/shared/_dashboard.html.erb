@@ -38,16 +38,20 @@
 
   <div class="right_side">
         <div class="search_top">
-          <input type="text" class="searchbar" placeholder ="Tap here to search">
+
+          <input type="search" class="searchbar" placeholder ="Tap here to search" class="fa-solid fa-magnifying-glass">
 
 
-        <div class="searchbar_button">
-        <i class="fa-solid fa-message"></i>
-        </div>
+          <%= link_to root_path, class: "searchbar_button" do %>
+            <i class="fa-solid fa-message"></i>
+          <% end %>
 
-        <div class="searchbar_button">
-        <i class="fa-solid fa-bell"></i>
-        </div>
+          <%= link_to root_path, class: "searchbar_button" do %>
+            <i class="fa-solid fa-bell"></i>
+          <% end %>
+          <div class="logo">
+          <h1>SHADO-W</h1>
           </div>
+        </div>
   </div>
 </div>
