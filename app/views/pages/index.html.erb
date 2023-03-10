@@ -10,7 +10,7 @@
 
 
               <% if user.profile_pic.present? %>
-                <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+                <%= image_tag user.profile_pic, class: "profile-pic-show", style: "margin-right: 15%" %>
               <% end %>
                 <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= "">
 
