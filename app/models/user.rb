@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :contributions
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
- 
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
@@ -29,7 +29,8 @@ class User < ApplicationRecord
     user.update(
       access_token: access_token.credentials.token,
       github_uid: access_token.uid,
-      github_nickname: data['nickname'] # Add this line to store the GitHub nickname in a new variable
+      github_nickname: data['nickname'],
+      profile_pic: data['image'] # Add this line to store the GitHub profile picture in a new variable
     )
 
     user
