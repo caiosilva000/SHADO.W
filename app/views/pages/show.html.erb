@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center pt-5">
     <div class="d-flex cards-show">
       <div class="d-flex profile-infos-show">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-pic-show" %>
+        <%= image_tag @user.profile_pic, class: "profile-pic-show" %>
         <h4 class="profile-name-show"><%= @user.github_nickname %></strong></h4></h4>
       </div>
       <div class="bio-box-show">
