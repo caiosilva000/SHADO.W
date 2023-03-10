@@ -9,7 +9,7 @@ require 'net/http'
 require 'json'
 User.destroy_all
 puts "Creating User"
-User.create(email: "junior@junior.com", password:"123456")
+# User.create(email: "junior@junior.com", password:"123456")
 # Create 10 users
 # Create 10 users with default password "password"
 
