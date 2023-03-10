@@ -1,2 +1,12 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class = "container booking-success mt-3">
+<h1>Your booking with <%= @booking.grandma.first_name %> was created 👵🏽🎉</h1>
+
+<strong>Details:</strong>
+
+<p >Reference: <%= @booking.grandma.last_name  %> - X5768 </p>
+<p class="list-group-item list-group-item-dark"  >First Name: <%= @booking.grandma.first_name  %> <%= @booking.grandma.last_name  %></p>
+<p>Location: <%= @booking.grandma.location  %></p>
+<p class="list-group-item list-group-item-dark">Total: 55$</p>
+
+<%= link_to "Book another Grandma", grandmas_path %>
+</div>
