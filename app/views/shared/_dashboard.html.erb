@@ -4,7 +4,7 @@
   <div class="left_side">
     <div class ="sidebar">
               <div class="sidebar_links">
-                <%= link_to root_path, class: "nav-link" do %>
+                <%= link_to my_profile_path , class: "nav-link" do %>
                  <i class="fa-solid fa-user"></i><p>Profile</p>
                 <% end %>
                 <%= link_to root_path, class: "nav-link" do %>
@@ -59,14 +59,11 @@
   <div class="search_top">
 
     <%= form_with url: users_path, method: :get do %>
-      <div class="searchbar_container">
         <%= text_field_tag :query,
           params[:query],
-          class: "searchbar form-control",
-          placeholder: "Search for users"
+          class: "searchbar",
+          placeholder: "Tap here to search"
         %>
-
-      </div>
     <% end %>
 
     <%= link_to root_path, class: "searchbar_button" do %>

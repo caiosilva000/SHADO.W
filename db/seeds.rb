@@ -15,8 +15,7 @@ puts "Creating Users"
     email: "user#{i+1}@example.com",
     password: "password",
     password_confirmation: "password",
-    user_name: "user#{i+1}",
-    profile_pic: "https://picsum.photos/200",
+    user_name: "user#{i+1}"
 
   )
 end
@@ -28,7 +27,6 @@ puts "Creating Seniors"
     password: "password",
     password_confirmation: "password",
     user_name: "user#{i+10}",
-    profile_pic: "https://picsum.photos/200",
   )
 end
 # Create 10 users with default password "password" and random senior status

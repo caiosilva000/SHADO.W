@@ -7,7 +7,8 @@
           <div class="d-flex cards-show">
             <div class="d-flex profile-infos-show">
 
-              <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+              <%# This should be done with clousinary/active storage attachments -> Check the cloudinary lecture %>
+              <%#= image_tag user.profile_pic, class: "profile-pic-show" %>
 
               <h4 class="profile-name-show"><strong><%= user.user_name %> <%= user.github_nickname %></strong></h4>
             </div>
