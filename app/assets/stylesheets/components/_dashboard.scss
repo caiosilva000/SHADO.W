@@ -64,10 +64,11 @@
 
 .search_top{
   display: flex;
+  margin-left: 11%;
 }
 
 .searchbar{
-  width: 40%;
+  width: 74%;
   height: 5vh;
   margin: 20px;
   border-radius: 20px;
@@ -77,11 +78,9 @@
   margin-left: 15%;
   border: none;
   opacity: 0.8;
+  outline: none;
 }
 
-input[type="search"] {
-  outline: none !important;
-}
 
 .searchbar_button {
   text-align: center;
@@ -96,6 +95,7 @@ input[type="search"] {
   justify-content: center;
   text-decoration: none;
   opacity: 0.8;
+  margin-left: 0%;
 }
 
 .searchbar_button:hover{
