@@ -64,10 +64,11 @@
 
 .search_top{
   display: flex;
+  margin-left: 11%;
 }
 
 .searchbar{
-  width: 40%;
+  width: 74%;
   height: 5vh;
   margin: 20px;
   border-radius: 20px;
@@ -94,6 +95,7 @@
   justify-content: center;
   text-decoration: none;
   opacity: 0.8;
+  margin-left: 0%;
 }
 
 .searchbar_button:hover{
