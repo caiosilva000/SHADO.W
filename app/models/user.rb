@@ -10,11 +10,11 @@ class User < ApplicationRecord
   has_many :messages
   has_many :reviews, through: :bookings
   # validates :user_name, presence: true
-  validates :profile_pic, presence: true
+  # validates :profile_pic, presence: true
   has_many :contributions
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
-
+ 
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
