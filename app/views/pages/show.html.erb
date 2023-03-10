@@ -2,8 +2,8 @@
   <div class="d-flex justify-content-center pt-5">
     <div class="d-flex cards-show">
       <div class="d-flex profile-infos-show">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-pic-show" %>
-        <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4></h4>
+        <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4>
+        <%= image_tag @user.profile_pic, class: "profile-pic-show" %>
         <%= link_to "Book #{@user.user_name}", new_user_booking_path(@user) %>
       </div>
       <div class="bio-box-show">
@@ -68,14 +68,8 @@
         <div class="boxes-grid-show">
           <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
         </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 1</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 2</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 3</h4>
+        <div>
+          <img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="GitHub contributions chart">
         </div>
       </div>
     </div>
@@ -114,6 +108,3 @@
       </div>
     </div>
 </div>
-
-
-<img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="<%= current_user.user_name %>" style="width: 300px; height: 337px; object-fit: cover; object-position: 100% 0;">
