@@ -10,16 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_140150) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_084042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -52,14 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140150) do
     t.datetime "updated_at", null: false
     t.index ["junior_id"], name: "index_chatrooms_on_junior_id"
     t.index ["senior_id"], name: "index_chatrooms_on_senior_id"
-  end
-
-  create_table "contributions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.date "date"
-    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -107,10 +92,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140150) do
     t.datetime "updated_at", null: false
     t.string "github_uid"
     t.string "access_token"
-    t.string "user_name"
-    t.string "profile_pic"
     t.string "github_nickname"
     t.integer "contributions"
+    t.string "profile_pic"
+    t.string "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -121,7 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140150) do
   add_foreign_key "bookings", "users", column: "booker_id"
   add_foreign_key "chatrooms", "users", column: "junior_id"
   add_foreign_key "chatrooms", "users", column: "senior_id"
-  add_foreign_key "contributions", "users"
   add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "messages", "chatrooms"
