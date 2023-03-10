@@ -13,7 +13,9 @@ class User < ApplicationRecord
   # validates :profile_pic, presence: true
   has_many :contributions
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable,
+  :omniauthable, omniauth_providers: [:github]
 
   def self.from_omniauth(access_token)
     data = access_token.info

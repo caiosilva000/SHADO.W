@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   get '/my_profile', to: 'pages#my_profile', as: 'my_profile'
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
   get '/users/:id', to: 'pages#show', as: 'user'
+
+  resources :users do
+    resources :follows, only: ["new", "create"]
+  end
+
+  resources :follows, only: ["destroy"]
 end
