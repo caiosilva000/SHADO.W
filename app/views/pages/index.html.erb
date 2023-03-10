@@ -1,27 +1,24 @@
-<ul  class="index_list">
+<ul class="index_list">
   <% @users.each do |user| %>
     <li>
       <div class="container">
         <div class="d-flex justify-content-center pt-5">
         <%= link_to root_path, style: 'text-decoration: none;' do %>
-          <div class=" cards-show">
+          <div class="cards-show">
             <div class="d-flex profile-infos-show">
-              <%= image_tag user.profile_pic, class: "profile-pic-show" %>
-              <div id="heatmap" >
-              <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= ⁄"" >
-
-
-            <%# <div class="bio-box-show">
-              <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
-            </div> %>
+              <% if user.profile_pic.present? %>
+                <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+              <% end %>
+              <div id="heatmap">
+                <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= ⁄"">
+              </div>
+            </div>
+            <h4 class="profile-name-show text-left">
+              <strong style="padding: 18px;"><%= user.user_name %></strong>
+            </h4>
           </div>
-        </div>
-       <h4 class="profile-name-show text-left">
-       <strong style="padding: 18px;"><%= user.user_name %>
-       </strong></h4>
-
+        <% end %>
       </div>
-      <% end %>
     </li>
   <% end %>
 </ul>
