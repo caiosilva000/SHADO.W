@@ -3,6 +3,7 @@
 
   <div class="left_side">
     <div class ="sidebar">
+
               <div class="sidebar_links">
                 <%= link_to my_profile_path , class: "nav-link" do %>
                  <i class="fa-solid fa-user"></i><p>Profile</p>
@@ -32,19 +33,15 @@
 
     <div class="bottom_box">
         <p>Upgrade to Pro</p>
+
       </div>
-    </div>
 
-
-  <%# <div class="right_side">
-        <div class="search_top">
-
-          <input type="search" class="searchbar" placeholder ="Tap here to search" class="fa-solid fa-magnifying-glass">
-
-
-          <%= link_to root_path, class: "searchbar_button" do %>
-            <%# <i class="fa-solid fa-message"></i>
+      <div class="sidebar_userlinks">
+        <div>
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fa-solid fa-gear"></i><p> Settings</p>
           <% end %>
+
 
           <%# <%= link_to root_path, class: "searchbar_button" do %>
             <%# <i class="fa-solid fa-bell"></i> %>
@@ -70,13 +67,32 @@
       <i class="fa-solid fa-message"></i>
     <% end %>
 
-    <%= link_to root_path, class: "searchbar_button" do %>
-      <i class="fa-solid fa-bell"></i>
-    <% end %>
-    <h1 class="logo">Shado-W</h1>
+
+    <div class="bottom_box">
+      <p>Upgrade to Pro</p>
+    </div>
   </div>
 
-  <%= yield %>
-</div>
+  <div class="right_side">
+    <div class="search_top">
+      <%= form_with url: users_path, method: :get do %>
+        <div class="searchbar_container">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "searchbar form-control",
+            placeholder: "Search for users" %>
+        </div>
+      <% end %>
+      <%= link_to root_path, class: "searchbar_button" do %>
+        <i class="fa-solid fa-message"></i>
+      <% end %>
+      <%= link_to root_path, class: "searchbar_button" do %>
+        <i class="fa-solid fa-bell"></i>
+      <% end %>
+      <h1 class="logo">SHADO.W</h1>
+    </div>
 
+    <%= yield %>
+  
+  </div>
 </div>

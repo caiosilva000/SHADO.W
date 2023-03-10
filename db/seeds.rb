@@ -5,28 +5,31 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'net/http'
+require 'json'
 User.destroy_all
-puts "Creating Users"
-
+puts "Creating User"
+User.create(email: "junior@junior.com", password:"123456")
 # Create 10 users
 # Create 10 users with default password "password"
-3.times do |i|
-  User.create!(
-    email: "user#{i+1}@example.com",
-    password: "password",
-    password_confirmation: "password",
-    user_name: "user#{i+1}"
 
-  )
-end
-puts "Creating Seniors"
+puts "Creating users"
 
-3.times do |i|
+10.times do |i|
+  # Generate random Github nickname
+  response = Net::HTTP.get_response(URI("https://api.github.com/users?since=#{rand(1..99999)}"))
+  user_data = JSON.parse(response.body).first
+  github_nickname = user_data["login"]
+
+  # Create user with Github info
   User.create!(
     email: "user#{i+10}@example.com",
     password: "password",
     password_confirmation: "password",
-    user_name: "user#{i+10}",
+
+    user_name: github_nickname,
+    profile_pic: user_data["avatar_url"],
+    github_nickname: github_nickname,
   )
 end
 # Create 10 users with default password "password" and random senior status
