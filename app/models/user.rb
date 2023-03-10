@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :messages
   has_many :reviews, through: :bookings
-  validates :user_name, presence: true
+  # validates :user_name, presence: true
   validates :profile_pic, presence: true
   has_many :contributions
 

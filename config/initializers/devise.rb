@@ -306,7 +306,7 @@ Devise.setup do |config|
   config.responder.redirect_status = :see_other
 
   # ==> Configuration for :registerable
-  config.omniauth :github, '10ae5be220ddcdf7e747', 'edc439964450a730f4158e890c7d87129a5bca4a', scope: 'user'
+  config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
