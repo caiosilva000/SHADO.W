@@ -28,7 +28,6 @@ class User < ApplicationRecord
 
     user.update(
       access_token: access_token.credentials.token,
-      profile_pic: access_token.info.image.presence || user.profile_pic,
       github_uid: access_token.uid,
       github_nickname: data['nickname'] # Add this line to store the GitHub nickname in a new variable
     )

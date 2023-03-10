@@ -26,6 +26,7 @@ puts "Creating users"
     email: "user#{i+10}@example.com",
     password: "password",
     password_confirmation: "password",
+
     user_name: github_nickname,
     profile_pic: user_data["avatar_url"],
     github_nickname: github_nickname,

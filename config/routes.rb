@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/users', to: 'pages#index'
   get '/auth/:provider/callback', to: 'github_auth#github'
   get '/heatmap', to: 'pages#index'
-  get '/users/:id', to: 'users#show', as: 'user'
+  get '/my_profile', to: 'pages#my_profile', as: 'my_profile'
+  get '/users/:id', to: 'pages#show', as: 'user'
 end
