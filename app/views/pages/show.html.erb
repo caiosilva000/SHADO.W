@@ -13,9 +13,9 @@
 
   <div class="d-flex my-3 justify-content-center">
     <div class="d-flex stats-btns-box-show">
-      <div class="d-flex btns-single-show">
+      <%# <div class="d-flex btns-single-show">
         <p class="d-flex btn-text-show"> Journey </p>
-      </div>
+      </div> %>
       <div class="d-flex btns-single-show">
         <p class="d-flex btn-text-show"> Journey</p>
       </div>
@@ -27,6 +27,16 @@
       </div>
     </div>
   </div>
+    <div class="d-flex my-3 justify-content-center">
+      <div class="d-flex cards-grid-show">
+        <div class="boxes-grid-show">
+          <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
+        </div>
+        <div>
+          <img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="GitHub contributions chart">
+        </div>
+      </div>
+    </div>
 
   <div class="d-flex my-3 justify-content-center">
     <div class="d-flex cards-grid-show">
@@ -62,16 +72,6 @@
       </div>
     </div> %>
 
-    <div class="d-flex my-3 justify-content-center">
-      <div class="d-flex cards-grid-show">
-        <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
-        </div>
-        <div>
-          <img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="GitHub contributions chart">
-        </div>
-      </div>
-    </div>
 
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">

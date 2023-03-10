@@ -9,8 +9,7 @@ require 'net/http'
 require 'json'
 User.destroy_all
 puts "Creating User"
-# User.create(email: "junior@junior.com", password:"123456")
-# Create 10 users
+
 # Create 10 users with default password "password"
 
 puts "Creating users"
@@ -26,7 +25,6 @@ puts "Creating users"
     email: "user#{i+10}@example.com",
     password: "password",
     password_confirmation: "password",
-
     user_name: github_nickname,
     profile_pic: user_data["avatar_url"],
     github_nickname: github_nickname,
