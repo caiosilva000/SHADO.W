@@ -1,8 +1,8 @@
 <div class="container">
 
   <%= simple_form_for [@booker, @booking] do |f| %>
-    <%= f.input :date, as: :date_picker %>
-    <%= f.input :time, as: :time_picker %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
     <%= f.button :submit %>
   <% end %>
 </div>

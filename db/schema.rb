@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_083829) do
     t.datetime "updated_at", null: false
     t.string "github_uid"
     t.string "access_token"
-    t.string "  "
+    t.string "github_nickname"
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"

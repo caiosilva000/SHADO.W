@@ -4,6 +4,7 @@
       <div class="d-flex profile-infos-show">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-pic-show" %>
         <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4></h4>
+        <%= link_to "Book #{@user.user_name}", new_user_booking_path(@user) %>
       </div>
       <div class="bio-box-show">
         <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
