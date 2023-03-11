@@ -1,4 +1,4 @@
-<div class="custom-styles">
+
 
 <div class="video-background" data-controller="video-background">
   <video autoplay muted loop poster="/assets/poster.png" data-target="video-background.video">
@@ -7,31 +7,30 @@
   <div class="overlay">
     <div class="form-container">
       <div class="card bg-dark text-white mx-auto mt-5" style="max-width: 400px;">
-        <div class="card-header text-center pt-4">
-          <h4 class="card-title">Sign in</h4>
+        <div class="card-header form-container text-center pt-4">
+          <h4 class="card-title form-container">Sign in</h4>
           <%= render "devise/shared/links" %>
         </div>
-        <div id="class="card-body text-center">
+        <div id=""class="card-body text-center form-container">
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
+            <div class="form-group form-container">
               <%= f.label :email %>
               <%= f.email_field :email, autofocus: true, class: 'form-control bg-dark text-white' %>
             </div>
-            <div class="form-group">
+            <div class="form-group form-container">
               <%= f.label :password %>
               <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control bg-dark text-white' %>
             </div>
             <% if devise_mapping.rememberable? -%>
-              <div class="form-group">
+              <div class="form-group form-container ">
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
               </div>
             <% end -%>
-            <%= f.submit "Sign in", class: 'btn btn-secondary mx-auto' %>
+            <%= f.submit "Sign in", class: 'btn btn-secondary mx-auto form-container' %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
