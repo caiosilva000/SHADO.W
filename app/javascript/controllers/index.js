@@ -7,5 +7,5 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import LoginController from "./login_controller"
-application.register("login", LoginController)
+import VideoBackgroundController from "./video_background_controller"
+application.register("video-background", VideoBackgroundController)
