@@ -1,43 +1,44 @@
-
-<div class ="dashboard_container">
+<div class="dashboard_container">
 
   <div class="left_side">
-    <div class ="sidebar">
+    <div class="sidebar">
 
-              <div class="sidebar_links">
-                <%= link_to my_profile_path , class: "nav-link" do %>
-                 <i class="fa-solid fa-user"></i><p>Profile</p>
-                <% end %>
-                <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-solid fa-house"></i><p> Dashboard</p>
-                <% end %>
-                <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-solid fa-message"></i><p> Messages</p>
-                <% end %>
-                <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-solid fa-money-check"></i><p> Payments</p>
-                <% end %>
-              </div>
+      <%# <div class="show_on_hover">
+        <i class="fa-solid fa-bars"></i>
+      </div> %>
 
-              <div class="sidebar_userlinks">
-                <div>
-                  <%= link_to root_path, class: "nav-link" do %>
-                  <i class="fa-solid fa-gear"></i><p> Settings</p>
-                  <% end %>
-                  <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
-                   <i class="fa-solid fa-right-from-bracket"></i><p> Log Out</p>
-                  <% end %>
-                </div>
-              </div>
+      <div class="sidebar_links hidden">
+        <%= link_to my_profile_path , class: "nav-link" do %>
+          <i class="fa-solid fa-user"></i><p>Profile</p>
+        <% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-house"></i><p> Dashboard</p>
+        <% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-message"></i><p> Messages</p>
+        <% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-money-check"></i><p> Payments</p>
+        <% end %>
       </div>
 
-    <div class="bottom_box">
-        <p>Upgrade to Pro</p>
+      <div class="sidebar_userlinks hidden">
+        <div>
+          <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-gear"></i><p> Settings</p>
+          <% end %>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
+          <i class="fa-solid fa-right-from-bracket"></i><p> Log Out</p>
+          <% end %>
+        </div>
+      </div>
     </div>
 
+    <%# <div class="bottom_box">
+      <p>Upgrade to Pro</p>
+    </div> %>
+
   </div>
-
-
 
   <div class="right_side">
     <div class="search_top">
@@ -64,3 +65,32 @@
 
   </div>
 </div>
+
+<style>
+  /* .sidebar_links.hidden {
+    display: none;
+  } */
+  /* .sidebar_userlinks.hidden {
+    display: none;
+  } */
+  .show_on_hover:hover + .sidebar_links,
+  .show_on_hover:hover + .sidebar_links + .sidebar_userlinks {
+    display: block;
+  }
+  .dashboard_container:hover .sidebar {
+  transform: translateX(0);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 138px;
+  background-color: #272D35;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+</style>
