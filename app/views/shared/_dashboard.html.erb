@@ -7,21 +7,20 @@
         <i class="fa-solid fa-bars"></i>
       </div> %>
 
-    <div class="sidebar_links hidden" data-controller="sidebar-link">
-      <%= link_to my_profile_path , class: "nav-link", data: { turbo_method: false } do %>
-        <i class="fa-solid fa-user"></i><p>Profile</p>
-      <% end %>
-      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToRoot" } do %>
-        <i class="fa-solid fa-house"></i><p> Dashboard</p>
-      <% end %>
-      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToMessages" } do %>
-        <i class="fa-solid fa-message"></i><p> Messages</p>
-      <% end %>
-      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToPayments" } do %>
-        <i class="fa-solid fa-money-check"></i><p> Payments</p>
-      <% end %>
-    </div>
-
+      <div class="sidebar_links hidden">
+<%= link_to my_profile_path , class: "nav-link", data: { turbo: false } do %>
+  <i class="fa-solid fa-user"></i><p>Profile</p>
+<% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-house"></i><p> Dashboard</p>
+        <% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-message"></i><p> Messages</p>
+        <% end %>
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fa-solid fa-money-check"></i><p> Payments</p>
+        <% end %>
+      </div>
 
       <div class="sidebar_userlinks hidden">
         <div>
@@ -84,14 +83,14 @@
 
 .sidebar {
   position: fixed;
-  top: 138px;
+  top: 118px;
   left: 0;
   bottom: 0;
   width: 138px;
   background-color: #272D35;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transform: translateX(-100%);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 </style>
