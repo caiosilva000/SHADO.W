@@ -7,20 +7,21 @@
         <i class="fa-solid fa-bars"></i>
       </div> %>
 
-      <div class="sidebar_links hidden">
-        <%= link_to my_profile_path , class: "nav-link" do %>
-          <i class="fa-solid fa-user"></i><p>Profile</p>
-        <% end %>
-        <%= link_to root_path, class: "nav-link" do %>
-          <i class="fa-solid fa-house"></i><p> Dashboard</p>
-        <% end %>
-        <%= link_to root_path, class: "nav-link" do %>
-          <i class="fa-solid fa-message"></i><p> Messages</p>
-        <% end %>
-        <%= link_to root_path, class: "nav-link" do %>
-          <i class="fa-solid fa-money-check"></i><p> Payments</p>
-        <% end %>
-      </div>
+    <div class="sidebar_links hidden" data-controller="sidebar-link">
+      <%= link_to my_profile_path , class: "nav-link", data: { turbo_method: false } do %>
+        <i class="fa-solid fa-user"></i><p>Profile</p>
+      <% end %>
+      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToRoot" } do %>
+        <i class="fa-solid fa-house"></i><p> Dashboard</p>
+      <% end %>
+      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToMessages" } do %>
+        <i class="fa-solid fa-message"></i><p> Messages</p>
+      <% end %>
+      <%= link_to root_path, class: "nav-link", data: { action: "sidebar-link#navigateToPayments" } do %>
+        <i class="fa-solid fa-money-check"></i><p> Payments</p>
+      <% end %>
+    </div>
+
 
       <div class="sidebar_userlinks hidden">
         <div>

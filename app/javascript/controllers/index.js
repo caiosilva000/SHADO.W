@@ -7,5 +7,8 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SidebarLinkController from "./sidebar_link_controller"
+application.register("sidebar-link", SidebarLinkController)
+
 import VideoBackgroundController from "./video_background_controller"
 application.register("video-background", VideoBackgroundController)
