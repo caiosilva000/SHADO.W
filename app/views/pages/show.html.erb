@@ -16,7 +16,7 @@
               <% if @follow && @follow.any? %>
                 <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style:"text-decoration:none; color:#fbf7f7" %>
               <% else %>
-                <%= link_to "Follow", user_follows_path(@user), method: :post, data: { turbo_method: :post } %>
+                <%= link_to "Follow", user_follows_path(@user), method: :post, data: { turbo_method: :post }, style:"text-decoration:none; color:#fbf7f7" %>
               <% end %>
             </div>
           <% end %>
@@ -27,11 +27,11 @@
         </div>
 
         <div class="d-flex btns-single-show">
-          <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
+          <p class="d-flex btn-text-show"> <%= @user.followers.count %> Followers </p>
         </div>
 
         <div class="d-flex btns-single-show">
-          <p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
+          <p class="d-flex btn-text-show" > <%= @user.following.count %> Following </p>
         </div>
 
         </div>
