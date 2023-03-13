@@ -2,25 +2,41 @@
   <div class="d-flex justify-content-center pt-5">
     <div class="d-flex cards-show">
       <div class="d-flex profile-infos-show">
+
+      <%# FOLLOWING COUNTER %>
+      <h6>Followers : <%= @user.followers.count %></h6>
+      <h6>Following : <%= @user.following.count %></h4>
+
         <%= image_tag @user.profile_pic , class: "profile-pic-show" %>
+
+
         <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4></h4>
-          <% if @follow && @follow.any? %>
+
+
+      <%# FOLLOW BUTTON %>
+        <% if @follow && @follow.any? %>
           <%= link_to "unfollow", follow_path(@follow.take), data: { turbo_method: :delete } %>
         <% else %>
-          <%= link_to "follow", user_follows_path(@user), data: { turbo_method: :post } %>
+          <% if current_user != @user %>
+            <%= link_to "follow", user_follows_path(@user), data: { turbo_method: :post } %>
+          <% end %>
         <% end %>
+
+
+      <%# BIO %>
       </div>
-      <div class="bio-box-show">
+      <%# <div class="bio-box-show">
         <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
-      </div>
+      </div> %>
     </div>
   </div>
 
+
+
+
   <div class="d-flex my-3 justify-content-center">
     <div class="d-flex stats-btns-box-show">
-      <%# <div class="d-flex btns-single-show">
-        <p class="d-flex btn-text-show"> Journey </p>
-      </div> %>
+
       <div class="d-flex btns-single-show">
         <p class="d-flex btn-text-show"> Journey</p>
       </div>
@@ -60,22 +76,7 @@
     </div>
   </div>
 
-    <%# <div class="d-flex my-3 justify-content-center">
-      <div class="d-flex cards-grid-show">
-        <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class= "boxes-content-show">Hack Rank</h3>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 1</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 2</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 3</h4>
-        </div>
-      </div>
-    </div> %>
+
 
 
     <div class="d-flex my-3 justify-content-center">
@@ -94,21 +95,5 @@
         </div>
       </div>
     </div>
-<%#
-    <div class="d-flex my-3 justify-content-center">
-      <div class="d-flex cards-grid-show">
-        <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class= "boxes-content-show">Portfolio</h3>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 1</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 2</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 3</h4>
-        </div>
-      </div>
-    </div> %>
+
 </div>
