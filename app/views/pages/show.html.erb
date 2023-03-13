@@ -13,23 +13,21 @@
 
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex stats-btns-box-show">
-        <div class="d-flex btns-single-show">
-          <% if @follow && @follow.any? %>
-            <%= link_to follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style: "text-decoration:none; backgroundcolor: blue" do %>
-              Unfollow
+         <% if current_user != @user %>
+          <div class="d-flex btns-single-show background-color:blue">
+            <% if @follow && @follow.any? %>
+              <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style: "text-decoration:none" %>
+            <% else %>
+              <%= link_to "Follow", user_follows_path(@user), method: :post, data: { turbo_method: :post } %>
             <% end %>
-          <% else %>
-            <% if current_user != @user %>
-              <%= link_to user_follows_path(@user), method: :post, data: { turbo_method: :post } do %>
-                Follow
-              <% end %>
-            <% end %>
-          <% end %>
-            </div>
+          </div>
+        <% end %>
               <div class="d-flex btns-single-show">
             <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
         </div>
         <div class="d-flex btns-single-show"
+
+
           <p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
         </div>
 
@@ -38,7 +36,7 @@
           <p class="d-flex btn-text-show"></p>
         </div>
       </div>
-    </div>
+
 
 
     </div>
@@ -105,5 +103,5 @@
       </div>
     </div> %>
 
-
+  </div>
 </div>
