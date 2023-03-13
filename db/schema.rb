@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,12 +20,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "monday", default: true
+    t.boolean "tuesday", default: true
+    t.boolean "wednesday", default: true
+    t.boolean "thursday", default: true
+    t.boolean "friday", default: true
+    t.boolean "saturday", default: true
+    t.boolean "sunday", default: true
+    t.time "start"
+    t.time "end"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
     t.integer "price"
     t.boolean "status"
     t.bigint "bookee_id", null: false
@@ -33,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "availability_id", null: false
+    t.integer "duration"
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
     t.index ["bookee_id"], name: "index_bookings_on_bookee_id"
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
@@ -96,7 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"
-    t.string "top_languages"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

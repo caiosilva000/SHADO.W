@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(booker: current_user)
+    @bookings = current_user.bookings_as_booker
   end
 
   def show
