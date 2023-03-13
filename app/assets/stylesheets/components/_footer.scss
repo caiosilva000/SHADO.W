@@ -1,4 +1,9 @@
 .footer {
   background: #272D35;
-  opacity: 0.8;
 }
+
+body{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  }
