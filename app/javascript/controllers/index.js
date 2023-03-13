@@ -4,9 +4,11 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
 
 import VideoBackgroundController from "./video_background_controller"
 application.register("video-background", VideoBackgroundController)

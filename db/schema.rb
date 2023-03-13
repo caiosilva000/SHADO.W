@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.index ["senior_id"], name: "index_chatrooms_on_senior_id"
   end
 
+  create_table "followeds", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_followeds_on_user_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "followee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followee_id"], name: "index_followers_on_followee_id"
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+  end
+
   create_table "follows", force: :cascade do |t|
     t.bigint "follower_id", null: false
     t.bigint "following_id", null: false
@@ -73,6 +89,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.bigint "follower_id", null: false
+    t.bigint "followed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -96,7 +121,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"
-    t.string "top_languages"
+    t.integer "follower_count"
+    t.integer "following_count"
+    t.integer "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -107,10 +134,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_143252) do
   add_foreign_key "bookings", "users", column: "booker_id"
   add_foreign_key "chatrooms", "users", column: "junior_id"
   add_foreign_key "chatrooms", "users", column: "senior_id"
+  add_foreign_key "followeds", "users"
+  add_foreign_key "followers", "users", column: "followee_id"
+  add_foreign_key "followers", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "relationships", "followeds"
+  add_foreign_key "relationships", "followers"
   add_foreign_key "reviews", "bookings"
 end

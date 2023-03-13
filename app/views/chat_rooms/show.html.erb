@@ -1,0 +1,31 @@
+<!-- app/views/chat_rooms/show.html.erb -->
+
+<h1>Chat Rooms</h1>
+
+<ul>
+  <% @chat_rooms.each do |chat_room| %>
+    <li><%= link_to chat_room.name, chat_room_path(chat_room) %></li>
+  <% end %>
+</ul>
+
+<h2>Join Chat Room</h2>
+<%= form_with url: join_chat_room_path(@chat_room), method: :post, local: true do |form| %>
+  <%= form.hidden_field :chat_room_id, value: @chat_room.id %>
+  <%= form.submit "Join" %>
+<% end %>
+
+
+<div data-controller="chatroom">
+  <div data-chatroom-target="log">
+    <% @messages.each do |message| %>
+      <p><%= message.user.name %>: <%= message.content %></p>
+    <% end %>
+  </div>
+
+  <div data-chatroom-target="form">
+    <%= form_with url: chat_room_messages_path(@chat_room), method: :post, local: true do |form| %>
+      <%= form.text_field :content, placeholder: "Type your message here...", data: { chatroom_target: "input" } %>
+      <%= form.submit "Send" %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :chat_rooms, only: [:index, :show, :create] do
+    post 'join', on: :member
+    # add a new route here
+    get 'new_route', to: 'chat_rooms#new_route_method'
+  end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: "pages#index"
+  root to: "chat_rooms#show"
   resources :users, only: [] do
     resources :bookings, only: [:new, :create]
   end
@@ -16,4 +22,6 @@ Rails.application.routes.draw do
   end
 
   resources :follows, only: ["destroy"]
+  mount ActionCable.server => '/cable'
 end
+

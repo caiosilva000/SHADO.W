@@ -1,6 +1,6 @@
 class Chatroom < ApplicationRecord
-  belongs_to :junior, class_name: "User"
-  belongs_to :senior, class_name: "User"
-  has_many :chatrooms_as_junior, class_name: "Chatroom", foreign_key: :junior_id
-  has_many :chatrooms_as_senior, class_name: "Chatroom", foreign_key: :senior_id
+  has_many :messages, dependent: :destroy
+  has_many :chatroom_users, dependent: :destroy
+  has_many :users, through: :chatroom_users
+  validates :name, presence: true
 end
