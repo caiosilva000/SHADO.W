@@ -7,7 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'net/http'
 require 'json'
+require 'dotenv-rails'
 
+Dotenv.load
 Booking.destroy_all
 Availability.destroy_all
 User.destroy_all
@@ -24,23 +26,12 @@ puts "Creating users"
   p user_data
   github_nickname = user_data["login"]
 
-  # Generate random senior status
-  senior = [true, false].sample
-
   # Fetch user's Github repos and get top language
-  uri = URI("https://api.github.com/users/#{github_nickname}/repos")
-  req = Net::HTTP::Get.new(uri)
-  req['Authorization'] = "Bearer #{'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'}"
-  req['Accept'] = 'application/vnd.github.mercy-preview+json'
-  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-    http.request(req)
-  end
-
+  response = Net::HTTP.get_response(URI("https://api.github.com/users/#{github_nickname}/repos"))
   repos = JSON.parse(response.body)
   languages = repos.map { |repo| repo["language"] }.compact
-  languages = repos.map { |repo| repo.language }.compact
   top_languages = languages.present? ? languages.uniq.first(5) : []
-
+  # p top_languages
 
   # Create user with Github info
   user = User.create!(
@@ -50,9 +41,8 @@ puts "Creating users"
     user_name: github_nickname,
     profile_pic: user_data["avatar_url"],
     github_nickname: github_nickname,
-    top_languages: [top_languages].compact
+    top_languages: top_languages
   )
-
 
   rand(1..10).times do
     start = rand(5).days.from_now + rand(1..5).hours
