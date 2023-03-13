@@ -18,9 +18,9 @@
 
   <div class="d-flex my-3 justify-content-center">
     <div class="d-flex stats-btns-box-show">
-      <div class="d-flex btns-single-show">
+      <%# <div class="d-flex btns-single-show">
         <p class="d-flex btn-text-show"> Journey </p>
-      </div>
+      </div> %>
       <div class="d-flex btns-single-show">
         <p class="d-flex btn-text-show"> Journey</p>
       </div>
@@ -32,6 +32,16 @@
       </div>
     </div>
   </div>
+    <div class="d-flex my-3 justify-content-center">
+      <div class="d-flex cards-grid-show">
+        <div class="boxes-grid-show">
+          <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
+        </div>
+        <div>
+          <img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="GitHub contributions chart">
+        </div>
+      </div>
+    </div>
 
   <div class="d-flex my-3 justify-content-center">
     <div class="d-flex cards-grid-show">
@@ -50,7 +60,7 @@
     </div>
   </div>
 
-    <div class="d-flex my-3 justify-content-center">
+    <%# <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
         <div class="boxes-grid-show">
           <h3 id="no-bg-box-show" class= "boxes-content-show">Hack Rank</h3>
@@ -65,24 +75,8 @@
           <h4 class= "boxes-content-show">Stats 3</h4>
         </div>
       </div>
-    </div>
+    </div> %>
 
-    <div class="d-flex my-3 justify-content-center">
-      <div class="d-flex cards-grid-show">
-        <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 1</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 2</h4>
-        </div>
-        <div class="boxes-grid-show">
-          <h4 class= "boxes-content-show">Stats 3</h4>
-        </div>
-      </div>
-    </div>
 
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
@@ -100,7 +94,7 @@
         </div>
       </div>
     </div>
-
+<%#
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
         <div class="boxes-grid-show">
@@ -116,8 +110,5 @@
           <h4 class= "boxes-content-show">Stats 3</h4>
         </div>
       </div>
-    </div>
+    </div> %>
 </div>
-
-
-<img src="https://ghchart.rshah.org/<%= current_user.github_nickname %>" alt="<%= current_user.user_name %>" style="width: 300px; height: 337px; object-fit: cover; object-position: 100% 0;">

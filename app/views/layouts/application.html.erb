@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%# <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %> %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-    <body>
+  <body>
     <%= render "shared/flashes" %>
-    <% if devise_controller? %>
+
+    <% if devise_controller? && resource_name == :user && controller_name == 'sessions' && action_name == 'new' %>
       <%= yield %>
     <% else %>
       <%= render "shared/dashboard" do %>
         <%= yield %>
       <% end %>
-    <% end %>
 
-    <%= render "shared/footer" %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>

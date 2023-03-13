@@ -3,22 +3,26 @@
     <li>
       <div class="container">
         <div class="d-flex justify-content-center pt-5">
-        <%= link_to root_path, style: 'text-decoration: none;' do %>
+        <%= link_to user_path(user), style: 'text-decoration: none;' do %>
           <div class="cards-show">
+
             <div class="d-flex profile-infos-show">
 
+
               <% if user.profile_pic.present? %>
-                <%= image_tag user.profile_pic, class: "profile-pic-show" %>
+                <%= image_tag user.profile_pic, class: "profile-pic-show", style: "margin-right: 15%" %>
               <% end %>
-              <div id="heatmap">
-                <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= ⁄"">
-              </div>
+                <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= "">
+
             </div>
+
             <h4 class="profile-name-show text-left">
               <strong style="padding: 18px;"><%= user.user_name %></strong>
             </h4>
           </div>
+
         <% end %>
+
       </div>
     </li>
   <% end %>

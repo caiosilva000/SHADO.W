@@ -305,9 +305,15 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
 
+
+
   # ==> Configuration for :registerable
-  config.omniauth :github, '10ae5be220ddcdf7e747', 'edc439964450a730f4158e890c7d87129a5bca4a', scope: 'user'
-  # When set to false, does not sign a user in automatically after their password is
-  # changed. Defaults to true, so a user is signed in automatically after changing a password.
-  # config.sign_in_after_change_password = true
+
+    #HEROKU
+  # config.omniauth :github, 'c52e612a7a8ee0fe6b3b', '1c55901a33b9645235c2486836395a8de93dc81b', scope: 'user'  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+
+   #LOCAL =
+  config.omniauth :github, '10ae5be220ddcdf7e747', 'edc439964450a730f4158e890c7d87129a5bca4a', scope: 'user'  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+
+
 end

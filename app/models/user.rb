@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :messages
   has_many :reviews, through: :bookings
-  validates :user_name, presence: true
-  validates :profile_pic, presence: true
+  # validates :user_name, presence: true
+  # validates :profile_pic, presence: true
   has_many :contributions
 
   devise :database_authenticatable, :registerable,
@@ -31,7 +31,8 @@ class User < ApplicationRecord
     user.update(
       access_token: access_token.credentials.token,
       github_uid: access_token.uid,
-      github_nickname: data['nickname'] # Add this line to store the GitHub nickname in a new variable
+      github_nickname: data['nickname'],
+      profile_pic: data['image'] # Add this line to store the GitHub profile picture in a new variable
     )
 
     user

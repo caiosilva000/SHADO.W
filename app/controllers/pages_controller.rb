@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     render 'show'
   end
 
+  def my_bookings
+    @bookings = Booking.where(booker: current_user)
+  end
+
   def show
     @user = User.find(params[:id])
     @follow = Follow.where(follower: current_user, following: @user)
