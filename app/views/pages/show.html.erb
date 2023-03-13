@@ -1,6 +1,4 @@
 <div class="container">
-
-
   <div class="top_card">
     <div class="profile_top">
       <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
@@ -10,18 +8,9 @@
           <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
         </div>
 
-  <div class="d-flex justify-content-center pt-5">
-    <div class="d-flex cards-show">
-      <div class="d-flex profile-infos-show">
-
-      <%# FOLLOWING COUNTER %>
-      <h6>Followers : <%= @user.followers.count %></h6>
-      <h6>Following : <%= @user.following.count %></h4>
-
-        <%= image_tag @user.profile_pic , class: "profile-pic-show" %>
 
 
-        <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4></h4>
+
 
 
       <%# FOLLOW BUTTON %>
@@ -34,25 +23,9 @@
         <% end %>
 
 
-      <%# BIO %>
-      </div>
-      <%# <div class="bio-box-show">
-        <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
-      </div> %>
+
+
     </div>
-
-
-
-
-            <% if @follow && @follow.any? %>
-            <%= link_to "unfollow", follow_path(@follow.take), data: { turbo_method: :delete }%>
-
-          <% else %>
-
-          <% if current_user != @user %>
-            <%= link_to "follow", user_follows_path(@user), data: { turbo_method: :post }, class: "btn tbn-primary"  %>
-            <% end %>
-          <% end %>
 
 
 
@@ -62,10 +35,10 @@
           <p class="d-flex btn-text-show"> Journey</p>
             </div>
               <div class="d-flex btns-single-show">
-            <p class="d-flex btn-text-show"> Followers</p>
+            <p class="d-flex btn-text-show"> Followers : <%= @user.followers.count %></p>
         </div>
         <div class="d-flex btns-single-show">
-          <p class="d-flex btn-text-show" > Following</p>
+          <p class="d-flex btn-text-show" > Following : <%= @user.following.count %></p>
         </div>
 
         <div class="d-flex btns-single-show" style="background: white">
@@ -76,34 +49,34 @@
     </div>
 
 
-  </div>
+    </div>
+      <div class="d-flex my-3 justify-content-center">
+        <div class="d-flex cards-grid-show">
+          <div class="boxes-grid-show">
+            <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
+          </div>
+          <div>
+            <img src="https://ghchart.rshah.org/<%= @user.github_nickname %>" alt="GitHub contributions chart">
+          </div>
+        </div>
+      </div>
+
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
         <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
+          <h3 id="no-bg-box-show" class= "boxes-content-show">Mentors</h3>
         </div>
-        <div>
-          <img src="https://ghchart.rshah.org/<%= @user.github_nickname %>" alt="GitHub contributions chart">
+        <div class="boxes-grid-show">
+          <h4 class= "boxes-content-show">Mentor Info</h4>
+        </div>
+        <div class="boxes-grid-show">
+          <h4 class= "boxes-content-show">Mentor Info</h4>
+        </div>
+        <div class="boxes-grid-show">
+          <h4 class= "boxes-content-show">Mentor Info</h4>
         </div>
       </div>
     </div>
-
-  <div class="d-flex my-3 justify-content-center">
-    <div class="d-flex cards-grid-show">
-      <div class="boxes-grid-show">
-        <h3 id="no-bg-box-show" class= "boxes-content-show">Mentors</h3>
-      </div>
-      <div class="boxes-grid-show">
-        <h4 class= "boxes-content-show">Mentor Info</h4>
-      </div>
-      <div class="boxes-grid-show">
-        <h4 class= "boxes-content-show">Mentor Info</h4>
-      </div>
-      <div class="boxes-grid-show">
-        <h4 class= "boxes-content-show">Mentor Info</h4>
-      </div>
-    </div>
-  </div>
 
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
@@ -121,7 +94,7 @@
         </div>
       </div>
     </div>
-    
+
     <%#
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
@@ -139,6 +112,6 @@
         </div>
       </div>
     </div> %>
-  </div>
+
 
 </div>
