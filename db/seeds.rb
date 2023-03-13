@@ -15,9 +15,80 @@ Availability.destroy_all
 User.destroy_all
 puts "Creating User"
 
-# Create 10 users with default password "password"
 
-puts "Creating users"
+# TEACHERS
+senior_users = ["pbragamiranda", "ENPina90", "jhibbeard89", "Danrod16", "AdamTomczyk", "ajdubovoy", "emmvs", "ClaireDMT", "lisbethpurrucker", "SebiBasti"]
+senior_users.each do |username|
+  response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}"))
+  user_data = JSON.parse(response.body)
+  top_languages = []
+
+  if user_data["public_repos"] > 0
+    response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
+    repos = JSON.parse(response.body)
+    languages = repos.map { |repo| repo["language"] }.compact
+    top_languages = languages.present? ? languages.uniq.first(5) : []
+  end
+
+  User.create!(
+    email: "#{username}@example.com",
+    password: "password",
+    password_confirmation: "password",
+    user_name: username,
+    profile_pic: user_data["avatar_url"],
+    github_nickname: username,
+    top_languages: top_languages,
+    senior: true
+  )
+end
+
+# Students
+students = [
+  "caiosilva000",
+  "giuliazeni",
+  "JDuub",
+  "guyberthol",
+  "kikarikiki",
+  "Dillontsteele",
+  "Martinisthename",
+  "Thooba",
+  "LukasSchanderl",
+  "nilahomar",
+  "dnussbaummueller",
+  "J3L3NA",
+  "MonoZyth",
+  "aferl-93",
+  "MARYFATAH",
+  "brenda-daroz",
+  "jandachlauer",
+  "AlexiaBerlin",
+  "memymilk",
+  "a-bayborosha"
+]
+students.each do |username|
+  response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}"))
+  user_data = JSON.parse(response.body)
+  top_languages = []
+
+  if user_data["public_repos"] > 0
+    response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
+    repos = JSON.parse(response.body)
+    languages = repos.map { |repo| repo["language"] }.compact
+    top_languages = languages.present? ? languages.uniq.first(5) : []
+  end
+
+  User.create!(
+    email: "#{username}@example.com",
+    password: "password",
+    password_confirmation: "password",
+    user_name: username,
+    profile_pic: user_data["avatar_url"],
+    github_nickname: username,
+    top_languages: top_languages,
+    senior: false
+  )
+end
+
 
 10.times do |i|
   # Generate random Github nickname
