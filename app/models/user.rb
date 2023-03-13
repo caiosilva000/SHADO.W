@@ -44,4 +44,11 @@ class User < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def followers
+    Follow.where(following_id: id).map(&:follower)
+  end
+  def following
+    Follow.where(follower_id: id).map(&:following)
+  end
 end
