@@ -12,27 +12,28 @@
 
         <div class="d-flex stats-btns-box-show">
           <% if current_user != @user %>
-            <div class="d-flex btns-single-show background-color:blue">
+            <div class="d-flex btns-single-show" style="background-color:#3e3ef5">
               <% if @follow && @follow.any? %>
-                <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style: "text-decoration:none" %>
+                <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style:"text-decoration:none; color:#fbf7f7" %>
               <% else %>
                 <%= link_to "Follow", user_follows_path(@user), method: :post, data: { turbo_method: :post } %>
               <% end %>
             </div>
           <% end %>
 
-            <div class="d-flex btns-single-show">
-              <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
-            </div>
+        <div class="d-flex btns-single-show" style="background: white">
+          <%= link_to "Book", new_user_booking_path(@user), style:"text-decoration:none; color:#05595B" %>
+          <p class="d-flex btn-text-show"></p>
+        </div>
 
-            <div class="d-flex btns-single-show">
-              <p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
-            </div>
+        <div class="d-flex btns-single-show">
+          <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
+        </div>
 
-            <div class="d-flex btns-single-show" style="background: white">
-              <%= link_to "Book", new_user_booking_path(@user), style: "text-decoration:none; color:#05595B" %>
-              <p class="d-flex btn-text-show"></p>
-            </div>
+        <div class="d-flex btns-single-show">
+          <p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
+        </div>
+
         </div>
       </div>
     </div>
@@ -62,14 +63,6 @@
       </div>
       <div class="boxes-grid-show">
         <h4 class= "boxes-content-show">Mentor Info</h4>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex my-3 justify-content-center">
-    <div class="d-flex cards-grid-show">
-      <div class="boxes-grid-show">
-        <h3 id="no-bg-box-show" class="boxes-content-show">My Stack</h3>
       </div>
     </div>
   </div>
