@@ -7,6 +7,18 @@
       <h6>Followers : <%= @user.followers.count %></h6>
       <h6>Following : <%= @user.following.count %></h4>
 
+<div class="row">
+  <% @user.top_languages.each_slice(2) do |languages| %>
+    <div class="col-md-6">
+      <% languages.each do |language| %>
+        <div class="d-flex align-items-center mb-3">
+          <i class="<%= @fa_map[language] %> mr-2"></i>
+          <%= language %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
         <%= image_tag @user.profile_pic , class: "profile-pic-show" %>
 
 
