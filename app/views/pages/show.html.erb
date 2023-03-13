@@ -4,7 +4,7 @@
       <div class="d-flex profile-infos-show">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-pic-show" %>
         <h4 class="profile-name-show"><strong><%= @user.user_name %> <%= @user.github_nickname %></strong></h4></h4>
-        <% if @follow.any? %>
+          <% if @follow && @follow.any? %>
           <%= link_to "unfollow", follow_path(@follow.take), data: { turbo_method: :delete } %>
         <% else %>
           <%= link_to "follow", user_follows_path(@user), data: { turbo_method: :post } %>
