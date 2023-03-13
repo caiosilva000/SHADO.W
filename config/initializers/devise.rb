@@ -313,7 +313,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'c52e612a7a8ee0fe6b3b', '1c55901a33b9645235c2486836395a8de93dc81b', scope: 'user'  # changed. Defaults to true, so a user is signed in automatically after changing a password.
 
    #LOCAL =
-  config.omniauth :github, '10ae5be220ddcdf7e747', 'edc439964450a730f4158e890c7d87129a5bca4a', scope: 'user'  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+   config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: 'user'
 
 
 end

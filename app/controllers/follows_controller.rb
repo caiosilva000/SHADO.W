@@ -24,14 +24,14 @@ class FollowsController < ApplicationController
       redirect_to user_path(@following)
     else
       flash.now[:error] = "There was an error following user ##{@following.user_name}. Please try again."
-      render :new
+      render "pages/show"
     end
   end
 
 
   def destroy
     @follow = Follow.find(params[:id])
-    @following = @follow.following
+    @following = User.find(@follow.following_id)
     @follow.destroy
     if @follow.destroy
       flash[:success] = "You have unfollowed user ##{@following.user_name}."
