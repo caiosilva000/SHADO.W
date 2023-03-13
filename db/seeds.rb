@@ -95,7 +95,7 @@ end
   # Generate random Github nickname
   response = Net::HTTP.get_response(URI("https://api.github.com/users?since=#{rand(1..99999)}"))
   user_data = JSON.parse(response.body).first
-  p user_data
+  p user_data["login"]
   github_nickname = user_data["login"]
 
   # Fetch user's Github repos and get top language
@@ -107,7 +107,7 @@ end
 
   # Create user with Github info
   user = User.create!(
-    email: "user#{i+10}@example.com",
+    email: "user#{i + 10}@example.com",
     password: "password",
     password_confirmation: "password",
     user_name: github_nickname,
