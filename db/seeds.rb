@@ -23,7 +23,7 @@ senior_users.each do |username|
   user_data = JSON.parse(response.body)
   top_languages = []
 
-  if user_data["public_repos"] > 0
+  if user_data["public_repos"].present? && user_data["public_repos"] > 0
     response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
     repos = JSON.parse(response.body)
     languages = repos.map { |repo| repo["language"] }.compact
@@ -70,12 +70,13 @@ students.each do |username|
   user_data = JSON.parse(response.body)
   top_languages = []
 
-  if user_data["public_repos"] > 0
+  if user_data["public_repos"] && user_data["public_repos"] > 0
     response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
     repos = JSON.parse(response.body)
     languages = repos.map { |repo| repo["language"] }.compact
     top_languages = languages.present? ? languages.uniq.first(5) : []
   end
+
 
   User.create!(
     email: "#{username}@example.com",
