@@ -7,7 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'net/http'
 require 'json'
+require 'dotenv-rails'
 
+Dotenv.load
 Booking.destroy_all
 Availability.destroy_all
 User.destroy_all
@@ -24,6 +26,13 @@ puts "Creating users"
   p user_data
   github_nickname = user_data["login"]
 
+  # Fetch user's Github repos and get top language
+  response = Net::HTTP.get_response(URI("https://api.github.com/users/#{github_nickname}/repos"))
+  repos = JSON.parse(response.body)
+  languages = repos.map { |repo| repo["language"] }.compact
+  top_languages = languages.present? ? languages.uniq.first(5) : []
+  # p top_languages
+
   # Create user with Github info
   user = User.create!(
     email: "user#{i+10}@example.com",
@@ -32,16 +41,8 @@ puts "Creating users"
     user_name: github_nickname,
     profile_pic: user_data["avatar_url"],
     github_nickname: github_nickname,
+    top_languages: top_languages
   )
-  # user = User.create!(
-  #   email: "user@example.com",
-  #   password: "password",
-  #   password_confirmation: "password",
-
-  #   user_name: 'enpina90',
-  #   profile_pic: 'https://source.unsplash.com/random/?avatar',
-  #   github_nickname: 'enpina90'
-  # )
 
   rand(1..10).times do
     start = rand(5).days.from_now + rand(1..5).hours
@@ -52,6 +53,3 @@ puts "Creating users"
     )
   end
 end
-
-
-# Create 10 users with default password "password" and random senior status

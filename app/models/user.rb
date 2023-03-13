@@ -28,11 +28,18 @@ class User < ApplicationRecord
       )
     end
 
+    # Get the user's top languages from their GitHub account
+    client = Octokit::Client.new(access_token: access_token.credentials.token)
+    repos = client.repos(nil, sort: :updated)
+    languages = repos.map { |repo| repo.language }.compact
+    top_languages = languages.present? ? languages.uniq.first(5) : []
+
     user.update(
       access_token: access_token.credentials.token,
       github_uid: access_token.uid,
       github_nickname: data['nickname'],
-      profile_pic: data['image'] # Add this line to store the GitHub profile picture in a new variable
+      profile_pic: data['image'],
+      top_languages: top_languages # Update the user's top languages in the database
     )
 
     user
