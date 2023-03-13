@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get '/my_profile', to: 'pages#my_profile', as: 'my_profile'
   get '/users/:id', to: 'pages#show', as: 'user'
 
-  resources :users do
-    resources :follows, only: ["new", "create"]
+  resources :users, only: [] do
+    resources :follows, only: [:create]
   end
 
-  resources :follows, only: ["destroy"]
+  resources :follows, only: [:destroy]
 end
