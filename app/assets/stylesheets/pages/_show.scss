@@ -34,17 +34,44 @@
 }
 
 
+.top_card{
+
+
+}
+.profile_top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #C4C4C4;
+}
+
+.profile_pic_show{
+  border-radius: 50%;
+  height: 45vh;
+  margin: 2%;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
+.profile_name_show{
+  color: #C4C4C4;
+}
+
 .bio-box-show {
   background-color: #05595B;
   border-radius: 20px;
-  width: 450px;
-  height: 150px;
-  margin-top: 14px;
+  width: 75vh;
+  height: 35vh;
+  margin-top: 2%;
   margin-right: 13px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 1px 9px 0px rgba(28, 28, 28, 0.75);
+
 
   .bio-text-show {
-    padding: 23px;
+    padding: 15px;
   }
 }
 
@@ -53,6 +80,7 @@
 .stats-btns-box-show{
   width: 450;
   color: white;
+  text-decoration: none;
 
   .btns-single-show {
     background-color: #05595B;
@@ -60,6 +88,8 @@
     width: 123px;
     border-radius: 10px;
     justify-content: center;
+    align-items: center;
+    box-shadow: 3px 1px 9px 0px rgba(28, 28, 28, 0.75);
 
   .btn-text-show {
     display: flex;
@@ -68,9 +98,11 @@
     margin-top: 0;
     margin-bottom: 0px;
     padding: 7px;
-  }
+    }
   }
 }
+
+
 
 // OTHER CARDS
 
