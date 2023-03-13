@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @follow = Follow.where(follower: current_user, following: @user)
   end
 
   def index
