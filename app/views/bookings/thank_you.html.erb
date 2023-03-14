@@ -1,0 +1,16 @@
+<div class="container booking-success mt-3" style="color: white">
+  <h1>Your booking with <%= @booking.bookee.email %> was created 🎉</h1>
+
+  <strong>Details:</strong>
+
+  <p>Reference: <%= @booking.bookee.user_name  %> - X5768 </p>
+  <p>First Name: <%= @booking.bookee.email  %> <%= @booking.bookee.email  %></p>
+  <p>Total: 55$</p>
+
+  <p>We are thrilled to provide you with a unique mentoring experience that will allow you to benefit from the expertise and experience of one of our seniors in the Tech ecosystem. Your booking has been successfully received and you will soon receive a confirmation email. If you have any questions or concerns regarding your booking, feel free to contact us directly through the chat.</p>
+
+  <p>While you await your session, we invite you to check out our blog to discover the latest trends in the field of computer development and to obtain practical tips on how to improve your skills. You can also follow us on social media to stay informed about our latest news and to engage with our community.</p>
+
+  <p>We are confident that you will learn many valuable things that will help you progress in your career. Once again, thank you for booking a session with our mentor <%= @booking.booker.user_name %>! </p>
+  <p>We look forward to seeing you on <%= @booking.start_date %>. </p>
+</div>

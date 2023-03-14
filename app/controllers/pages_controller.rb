@@ -3,6 +3,17 @@ class PagesController < ApplicationController
   def home
   end
 
+  def create
+    @user = User.new(user_params)
+    authorize @user
+
+    if @user.save
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+  
   def my_profile
     @user = current_user
     @fa_map = {
@@ -63,7 +74,8 @@ class PagesController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(booker: current_user)
+    @bookings = current_user.bookings_as_booker + current_user.bookings_as_bookee
+    @availabilities = current_user.availabilities
   end
 
   def my_settings
@@ -127,6 +139,9 @@ class PagesController < ApplicationController
       'XML' => 'fas fa-code',
       'XSLT' => 'fas fa-code'
     }
+  end
+
+  def settings
   end
 
   def index

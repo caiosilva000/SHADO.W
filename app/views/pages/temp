@@ -1,0 +1,12 @@
+<div class="container booking-success mt-3">
+  <h1>Your booking with <%= @booking.bookee.first_name %> was created 🎉</h1>
+
+  <strong>Details:</strong>
+
+  <p>Reference: <%= @booking.bookee.last_name  %> - X5768 </p>
+  <p>First Name: <%= @booking.bookee.first_name  %> <%= @booking.bookee.last_name  %></p>
+  <p>Total: 55$</p>
+
+  <p>Thank you for booking a session with <%= @booking.booker.user_name %>! </p>
+  <p>We look forward to seeing you on <%= @booking.start_date %>. </p>
+</div>

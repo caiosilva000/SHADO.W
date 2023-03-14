@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container" data>
+<%= simple_form_for [@booker, @booking], data: { controller: 'flatpickr', flatpickr_available_dates_value: @available_dates.to_json } do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :duration %>
+  <%# f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%= f.submit 'Book your mentor' %>
+<% end %>
 
-  <%= simple_form_for [@booker, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.button :submit %>
-  <% end %>
 </div>
