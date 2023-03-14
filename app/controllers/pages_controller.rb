@@ -79,9 +79,6 @@ class PagesController < ApplicationController
   end
 
   def my_settings
-    # @resource_name = :user
-    # @resource = @user
-    # @user = current_user
     render '/devise/registrations/edit'
   end
 
