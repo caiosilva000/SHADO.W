@@ -12,6 +12,8 @@ class User < ApplicationRecord
   # validates :user_name, presence: true
   # validates :profile_pic, presence: true
   has_many :contributions
+  has_many :bookings_as_booker, class_name: "Booking", foreign_key: :booker_id
+  has_many :bookings_as_bookee, class_name: "Booking", foreign_key: :bookee_id
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,

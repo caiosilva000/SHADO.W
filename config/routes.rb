@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
   get '/users/:id', to: 'pages#show', as: 'user'
 
+  resources :bookings, only: [] do
+    member do
+      get 'thank_you'
+    end
+  end
+
   resources :users, only: [] do
     resources :follows, only: [:create]
   end
