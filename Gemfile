@@ -85,3 +85,4 @@ gem "omniauth-rails_csrf_protection"
 gem 'octokit'
 gem 'faraday-retry'
 gem "pg_search"
+gem 'pundit'

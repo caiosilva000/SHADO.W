@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_092303) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,12 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "junior_id", null: false
-    t.bigint "senior_id", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["junior_id"], name: "index_chatrooms_on_junior_id"
-    t.index ["senior_id"], name: "index_chatrooms_on_senior_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -67,8 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "content"
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -106,8 +106,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"
+    t.integer "user_type"
     t.string "top_languages", default: [], array: true
     t.boolean "senior", default: false
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -116,8 +118,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_154435) do
   add_foreign_key "bookings", "availabilities"
   add_foreign_key "bookings", "users", column: "bookee_id"
   add_foreign_key "bookings", "users", column: "booker_id"
-  add_foreign_key "chatrooms", "users", column: "junior_id"
-  add_foreign_key "chatrooms", "users", column: "senior_id"
+  add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"

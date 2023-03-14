@@ -3,6 +3,17 @@ class PagesController < ApplicationController
   def home
   end
 
+  def create
+    @user = User.new(user_params)
+    authorize @user
+
+    if @user.save
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+  
   def my_profile
     @user = current_user
     @fa_map = {
