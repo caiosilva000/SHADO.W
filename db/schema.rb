@@ -10,22 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_111151) do
+
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_094957) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.date "start_date"
-    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
     t.integer "price"
     t.boolean "status"
     t.bigint "bookee_id", null: false
@@ -33,18 +36,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111151) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "availability_id", null: false
+    t.integer "duration"
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
     t.index ["bookee_id"], name: "index_bookings_on_bookee_id"
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "junior_id", null: false
-    t.bigint "senior_id", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["junior_id"], name: "index_chatrooms_on_junior_id"
-    t.index ["senior_id"], name: "index_chatrooms_on_senior_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -57,8 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111151) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "content"
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -96,9 +98,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111151) do
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"
+    t.integer "user_type"
     t.string "top_languages", default: [], array: true
     t.boolean "senior", default: false
     t.text "bio"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -107,8 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111151) do
   add_foreign_key "bookings", "availabilities"
   add_foreign_key "bookings", "users", column: "bookee_id"
   add_foreign_key "bookings", "users", column: "booker_id"
-  add_foreign_key "chatrooms", "users", column: "junior_id"
-  add_foreign_key "chatrooms", "users", column: "senior_id"
+  add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"

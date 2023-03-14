@@ -1,8 +1,34 @@
 <div class="container">
   <div class="top_card">
     <div class="profile_top">
-      <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
-      <h4 class="profile-name-show"><strong><%= @user.user_name %></strong></h4>
+
+      <%= image_tag @user.profile_pic , class: "profile_pic_show" if @user.profile_pic%>
+      <h4 class="profile-name-show"><strong><%= @user.user_name %></strong></h4></h4>
+
+
+
+        <div class="bio-box-show">
+          <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
+        </div>
+
+
+    <div class="d-flex my-3 justify-content-center">
+      <div class="d-flex stats-btns-box-show">
+         <% if current_user != @user %>
+          <div class="d-flex btns-single-show background-color:blue">
+            <% if @follow && @follow.any? %>
+              <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete },style: "text-decoration:none" %>
+            <% else %>
+              <%= link_to "Follow", user_follows_path(@user), method: :post, data: { turbo_method: :post } %>
+            <% end %>
+          </div>
+        <% end %>
+              <div class="d-flex btns-single-show">
+            <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
+        </div>
+
+        <div class="d-flex btns-single-show"
+
 
       <div class="bio-box-show">
         <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
@@ -67,4 +93,20 @@
     </div>
   </div>
 
+<div class="d-flex my-3 justify-content-center">
+  <div class="d-flex cards-grid-show">
+    <div class="boxes-grid-show">
+      <h3 id="no-bg-box-show" class="boxes-content-show">My Stack</h3>
+
+      <% @user.top_languages.each do |language| %>
+        <div class="boxes-grid-show">
+          <h4 class="boxes-content-show"><i class="<%= @fa_map[language] %> mr-2"></i> <%= language %></h4>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+</div>
 </div>

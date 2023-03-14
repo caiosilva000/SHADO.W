@@ -1,16 +1,24 @@
 class BookingsController < ApplicationController
 
   def new
+
     @booking = Booking.new
     @booker = User.find(params[:user_id])
+    @available_dates = @booker.availabilities.map do |availability|
+      {
+        from: availability.start_date.to_date, to: availability.end_date.to_date
+      }
+    end
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.bookee = current_user
+    @booking.end_date = @booking.start_date + @booking.duration.hours
     # This is a hard coded avalibility change later
-    @booking.availability = Availability.first
     @booker = User.find(params[:user_id])
+    @booking.availability = Availability.find_by(user: @booker)
+
     @booking.booker = @booker
 
     if @booking.save
@@ -23,6 +31,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :duration)
   end
 end
