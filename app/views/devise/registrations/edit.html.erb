@@ -1,5 +1,5 @@
 <div class="edit_settings" style="color:#FFF; background:rgba(187, 127, 127, 0.06); padding:5vh; border-radius:10px; margin-left:1vh">
-<h2 style="color:#C4C4C4;">Edit <%= resource_name.to_s.humanize %></h2>
+<h2 style="color:#C4C4C4;">Edit Profile</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -29,7 +29,7 @@
                 input_html: { style: "border-radius: 10px; width: 80vh"} %>
   </div>
 
-  <div class="form-actions btn btn-primary" style="margin-bottom:3vh; box-shadow: 3px 1px 9px 0px rgba(28, 28, 28, 0.75); color: white">
+  <div class="form-actions btn btn-primary" style="background-color:#27aecd; margin-bottom:3vh; box-shadow: 3px 1px 9px 0px rgba(28, 28, 28, 0.75); color: white">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
