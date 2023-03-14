@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
 
     @booking = Booking.new
@@ -22,10 +21,14 @@ class BookingsController < ApplicationController
     @booking.booker = @booker
 
     if @booking.save
-      redirect_to my_bookings_path
+      redirect_to thank_you_booking_path(@booking)
     else
       render :new
     end
+  end
+
+  def thank_you
+    @booking = Booking.find(params[:id])
   end
 
   private
