@@ -15,11 +15,11 @@ class User < ApplicationRecord
   has_many :contributions
   has_many :bookings_as_booker, class_name: "Booking", foreign_key: :booker_id
   has_many :bookings_as_bookee, class_name: "Booking", foreign_key: :bookee_id
-
+  scope :all_except, -> (user) { where.not(id: user) }
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,
   :omniauthable, omniauth_providers: [:github]
-
+after_create_commit { broadcast_append_to "user was created"}
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
