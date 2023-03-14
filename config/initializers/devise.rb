@@ -1,4 +1,17 @@
 # frozen_string_literal: true
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
@@ -189,7 +202,23 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
+  config.parent_controller = 'TurboDeviseController'
 
+  # ...
+
+  # ==> Navigation configuration
+  # ...
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+  # ...
+
+  # ==> Warden configuration
+  # ...
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  #   manager.intercept_401 = false
+  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  end
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
@@ -264,7 +293,28 @@ Devise.setup do |config|
   #
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  Devise.setup do |config|
+    # ...
 
+    # ==> Controller configuration
+    # Configure the parent class to the devise controllers.
+    config.parent_controller = 'TurboDeviseController'
+
+    # ...
+
+    # ==> Navigation configuration
+    # ...
+    config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+    # ...
+
+    # ==> Warden configuration
+    # ...
+    config.warden do |manager|
+      manager.failure_app = TurboFailureApp
+    #   manager.intercept_401 = false
+    #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+    end
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
@@ -316,4 +366,5 @@ Devise.setup do |config|
    config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: 'user'
 
 
+end
 end
