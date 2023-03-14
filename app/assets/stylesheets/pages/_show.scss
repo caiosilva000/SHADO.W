@@ -124,12 +124,13 @@
   align-items: center;
   margin: 10px;
   opacity: 0.9;
+  color: white;
 }
 
 .boxes-grid-show {
   display: flex;
   width: 150px;
-  height: 150px;
+  // height: 150px;
   border-radius: 20px;
   background-color: #05595B;
   justify-content: center;
@@ -137,6 +138,7 @@
 
   .boxes-content-show {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 0;
@@ -144,6 +146,21 @@
     padding: 7px;
     justify-content: center;
     color: white;
+  }
+
+  .skill-icons {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    color: white;
+
+    i {
+      margin-right: 4px;
+    }
+
+    p {
+      margin: unset;
+    }
   }
 }
 
