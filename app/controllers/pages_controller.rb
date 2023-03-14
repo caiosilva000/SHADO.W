@@ -125,6 +125,9 @@ class PagesController < ApplicationController
     }
   end
 
+  def settings
+  end
+
   def index
     if params[:query].present?
       sql_query = "user_name ILIKE :query OR github_nickname ILIKE :query"
