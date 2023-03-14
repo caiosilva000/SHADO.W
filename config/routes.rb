@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'github_auth#github'
   get '/heatmap', to: 'pages#index'
   get '/my_profile', to: 'pages#my_profile', as: 'my_profile'
+  # get '/my_settings', to: 'pages#my_settings', as: 'my_settings'
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
   get '/users/:id', to: 'pages#show', as: 'user'
 
