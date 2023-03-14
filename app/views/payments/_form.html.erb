@@ -1,0 +1,31 @@
+<h1>Payment</h1>
+
+<%= form_for [@booking, @payment]  do |f| %>
+  <%= f.label :first_name, 'First name' %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name, 'Last name' %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :phone, 'Phone' %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :card_number, 'Card number' %>
+  <%= f.text_field :card_number %>
+
+  <%= f.label :expiration_month, 'Expiration month' %>
+  <%= f.text_field :expiration_month %>
+
+  <%= f.label :expiration_year, 'Expiration year' %>
+  <%= f.text_field :expiration_year %>
+
+  <%= f.label :cvc, 'CVC' %>
+  <%= f.text_field :cvc %>
+
+  <%= f.hidden_field :booking_id, value: @booking.id %>
+
+  <%= f.submit 'Submit payment' %>
+<% end %>

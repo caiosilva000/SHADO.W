@@ -1,2 +1,29 @@
-<h1>Bookings#pay_booking</h1>
-<p>Find me in app/views/bookings/pay_booking.html.erb</p>
+<div class="container">
+  <%= form_for [@booking, @payment] do |f| %>
+    <%= f.label :first_name, 'First name' %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name, 'Last name' %>
+    <%= f.text_field :last_name %>
+
+    <%= f.label :email, 'Email address' %>
+    <%= f.email_field :email %>
+
+    <%= f.label :phone_number, 'Phone number' %>
+    <%= f.text_field :phone_number %>
+
+    <%= f.label :card_number, 'Card number' %>
+    <%= f.text_field :card_number %>
+
+    <%= f.label :expiration_date, 'Expiration date' %>
+    <%= f.text_field :expiration_date %>
+
+    <%= f.label :cvc, 'CVC' %>
+    <%= f.text_field :cvc %>
+
+    <%= f.label :price, 'Price' %>
+    <%= f.text_field :price %>
+
+    <%= f.submit 'Pay now' %>
+  <% end %>
+</div>
