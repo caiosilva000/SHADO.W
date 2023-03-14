@@ -51,6 +51,19 @@
         </div>
       </div>
 
+
+      <div class="d-flex my-3 justify-content-center">
+        <div class="d-flex cards-grid-show">
+          <h3 id="no-bg-box-show" class="boxes-content-show">My Stack</h3>
+
+          <% @user.top_languages.each do |language| %>
+            <div class="boxes-grid-show">
+              <span class="skill-icons"><i class="<%= @fa_map[language] %> mr-2"></i> <p><%= language %></p> </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
         <div class="boxes-grid-show">
@@ -70,18 +83,7 @@
 
 
 
-    <div class="d-flex my-3 justify-content-center">
-      <div class="d-flex cards-grid-show">
 
-          <h3 id="no-bg-box-show" class="boxes-content-show">My Stack</h3>
-
-          <% @user.top_languages.each do |language| %>
-            <div class="boxes-grid-show">
-              <h4 class="boxes-content-show"><i class="<%= @fa_map[language] %> mr-2"></i> <%= language %></h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
