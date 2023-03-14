@@ -33,16 +33,13 @@
   }
 }
 
-
-.top_card{
-
-
-}
 .profile_top{
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #C4C4C4;
+  background: rgba(187, 127, 127, 0.06);
+  border-radius: 20px;
 }
 
 .profile_pic_show{
@@ -57,13 +54,13 @@
 }
 
 .btn-primary{
-  
+
 }
 
 .bio-box-show {
   background-color: #05595B;
   border-radius: 20px;
-  width: 75vh;
+  width: 90vh;
   height: 35vh;
   margin-top: 2%;
   margin-right: 13px;
@@ -93,7 +90,8 @@
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    box-shadow: 3px 1px 9px 0px rgba(28, 28, 28, 0.75);
+    margin: 2%;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
 
   .btn-text-show {
     display: flex;
@@ -151,4 +149,3 @@
   list-style-type: none;
   text-decoration: none;
 }
-
