@@ -2,7 +2,18 @@
 <% @bookings.each do |booking| %>
 <div class="d-flex">
   <%# <p><%= bookee.user_name</p> %>
-  <p><%= booking.start_date.strftime('%d. %m. %Y. - %H:%M') %></p>
-
+  <p><%= booking.start_date.strftime('%d. %m. %Y. - %H:%M') %> <%= booking.duration %> hours</p>
 </div>
 <% end %>
+
+<h1>Availabilities</h1>
+
+<% @availabilities.each do |availability| %>
+<div class="d-flex">
+  <%# <p><%= bookee.user_name</p> %>
+  <p><%= availability.start_date.strftime('%d. %m. %Y. - %H:%M') %></p>
+  <p><%= availability.end_date.strftime('%d. %m. %Y. - %H:%M') %></p>
+</div>
+<% end %>
+
+<%= link_to "Add availabilities", new_availability_path %>

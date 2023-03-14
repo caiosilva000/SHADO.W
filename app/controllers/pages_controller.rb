@@ -63,7 +63,8 @@ class PagesController < ApplicationController
   end
 
   def my_bookings
-    @bookings = current_user.bookings_as_booker
+    @bookings = current_user.bookings_as_booker + current_user.bookings_as_bookee
+    @availabilities = current_user.availabilities
   end
 
   def show

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="top_card">
     <div class="profile_top">
-      <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
+      <%= image_tag @user.profile_pic , class: "profile_pic_show" if @user.profile_pic%>
       <h4 class="profile-name-show"><strong><%= @user.user_name %></strong></h4></h4>
 
 

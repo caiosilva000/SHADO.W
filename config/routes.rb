@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :bookings, only: [:new, :create]
   end
+  resources :availabilities, only: [:new, :create]
   get '/users', to: 'pages#index'
   get '/auth/:provider/callback', to: 'github_auth#github'
   get '/heatmap', to: 'pages#index'

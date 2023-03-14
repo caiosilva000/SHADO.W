@@ -1,6 +1,5 @@
 <div class="container" data>
-<% @booking.availability %>
-<%= simple_form_for [@booker, @booking], data: { controller: 'flatpickr', flatpickr_availability_value: @availability } do |f| %>
+<%= simple_form_for [@booker, @booking], data: { controller: 'flatpickr', flatpickr_available_dates_value: @available_dates.to_json } do |f| %>
   <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
   <%= f.input :duration %>
   <%# f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
