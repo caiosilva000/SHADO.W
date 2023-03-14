@@ -78,6 +78,13 @@ class PagesController < ApplicationController
     @availabilities = current_user.availabilities
   end
 
+  def my_settings
+    # @resource_name = :user
+    # @resource = @user
+    # @user = current_user
+    render '/devise/registrations/edit'
+  end
+
   def show
     @user = User.find(params[:id])
     @follow = Follow.where(follower: current_user, following: @user)
