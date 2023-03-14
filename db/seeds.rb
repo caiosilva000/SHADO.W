@@ -95,6 +95,7 @@ end
   # Generate random Github nickname
   response = Net::HTTP.get_response(URI("https://api.github.com/users?since=#{rand(1..99999)}"))
   user_data = JSON.parse(response.body).first
+  if user_data.is_a? Hash
   p user_data["login"]
   github_nickname = user_data["login"]
 
@@ -124,4 +125,5 @@ end
       end_date: start + rand(1..5).hours
     )
   end
+end
 end

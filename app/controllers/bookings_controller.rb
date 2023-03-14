@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
 
     @booking = Booking.new
     @booker = User.find(params[:user_id])
-    @availability = @booker.availabilities.last.to_json
+    @available_dates = @booker.availabilities.map do |availability|
+      {
+        from: availability.start_date.to_date, to: availability.end_date.to_date
+      }
+    end
   end
 
   def create

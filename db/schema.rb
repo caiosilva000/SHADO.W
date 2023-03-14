@@ -11,26 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_092303) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_094957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.date "start_date"
-    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "monday", default: true
-    t.boolean "tuesday", default: true
-    t.boolean "wednesday", default: true
-    t.boolean "thursday", default: true
-    t.boolean "friday", default: true
-    t.boolean "saturday", default: true
-    t.boolean "sunday", default: true
-    t.time "start"
-    t.time "end"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
