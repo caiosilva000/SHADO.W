@@ -28,18 +28,16 @@ class FollowsController < ApplicationController
     end
   end
 
-
   def destroy
     @follow = Follow.find(params[:id])
     @following = User.find(@follow.following_id)
-    @follow.destroy
     if @follow.destroy
       flash[:success] = "You have unfollowed user ##{@following.user_name}."
       redirect_to user_path(@following)
     else
       flash[:error] = "There was an error unfollowing user
       #{@following.user_name}. Please try again."
-      render "user/show", status: :unprocessable_entity
+      redirect_to user_path(@following)
     end
   end
 end

@@ -23,7 +23,7 @@ senior_users.each do |username|
   user_data = JSON.parse(response.body)
   top_languages = []
 
-  if user_data["public_repos"] > 0
+  if user_data["public_repos"].present? && user_data["public_repos"] > 0
     response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
     repos = JSON.parse(response.body)
     languages = repos.map { |repo| repo["language"] }.compact
@@ -70,12 +70,13 @@ students.each do |username|
   user_data = JSON.parse(response.body)
   top_languages = []
 
-  if user_data["public_repos"] > 0
+  if user_data["public_repos"] && user_data["public_repos"] > 0
     response = Net::HTTP.get_response(URI("https://api.github.com/users/#{username}/repos"))
     repos = JSON.parse(response.body)
     languages = repos.map { |repo| repo["language"] }.compact
     top_languages = languages.present? ? languages.uniq.first(5) : []
   end
+
 
   User.create!(
     email: "#{username}@example.com",
@@ -94,7 +95,8 @@ end
   # Generate random Github nickname
   response = Net::HTTP.get_response(URI("https://api.github.com/users?since=#{rand(1..99999)}"))
   user_data = JSON.parse(response.body).first
-  p user_data
+  if user_data.is_a? Hash
+  p user_data["login"]
   github_nickname = user_data["login"]
 
   # Fetch user's Github repos and get top language
@@ -106,7 +108,7 @@ end
 
   # Create user with Github info
   user = User.create!(
-    email: "user#{i+10}@example.com",
+    email: "user#{i + 10}@example.com",
     password: "password",
     password_confirmation: "password",
     user_name: github_nickname,
@@ -123,4 +125,5 @@ end
       end_date: start + rand(1..5).hours
     )
   end
+end
 end
