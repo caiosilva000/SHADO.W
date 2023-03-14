@@ -1,5 +1,5 @@
 <div class="dashboard_container">
-
+    <h1 class="logo">SHADO.W</h1>
   <div class="left_side">
     <div class="sidebar">
 
@@ -58,7 +58,6 @@
       <%= link_to root_path, class: "searchbar_button" do %>
         <i class="fa-solid fa-bell"></i>
       <% end %>
-      <h1 class="logo">SHADO.W</h1>
     </div>
 
     <%= yield %>
@@ -89,8 +88,12 @@
   width: 138px;
   background-color: #272D35;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  /* transform: translateX(-100%);
+  transition: transform 0.0s ease-in-out; */
 }
 
+.logo {
+  position: fixed;
+
+}
 </style>

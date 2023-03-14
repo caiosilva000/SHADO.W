@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
   get '/users/:id', to: 'pages#show', as: 'user'
 
-  resources :users do
-    resources :follows, only: ["new", "create"]
+  resources :users, only: [] do
+    resources :follows, only: [:create]
   end
+  
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
   resources :follows, only: ["destroy"]
   mount ActionCable.server => '/cable'
+
 end
