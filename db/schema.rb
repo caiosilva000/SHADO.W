@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_092303) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,28 +39,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "junior_id", null: false
-    t.bigint "senior_id", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["junior_id"], name: "index_chatrooms_on_junior_id"
-    t.index ["senior_id"], name: "index_chatrooms_on_senior_id"
-  end
-
-  create_table "followeds", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_followeds_on_user_id"
-  end
-
-  create_table "followers", force: :cascade do |t|
-    t.bigint "follower_id"
-    t.bigint "followee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followee_id"], name: "index_followers_on_followee_id"
-    t.index ["follower_id"], name: "index_followers_on_follower_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -73,8 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "content"
     t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -87,15 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.bigint "follower_id", null: false
-    t.bigint "followed_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -121,8 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
     t.integer "contributions"
     t.string "user_name"
     t.string "profile_pic"
-    t.integer "follower_count"
-    t.integer "following_count"
     t.integer "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -132,17 +103,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_185042) do
   add_foreign_key "bookings", "availabilities"
   add_foreign_key "bookings", "users", column: "bookee_id"
   add_foreign_key "bookings", "users", column: "booker_id"
-  add_foreign_key "chatrooms", "users", column: "junior_id"
-  add_foreign_key "chatrooms", "users", column: "senior_id"
-  add_foreign_key "followeds", "users"
-  add_foreign_key "followers", "users", column: "followee_id"
-  add_foreign_key "followers", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "relationships", "followeds"
-  add_foreign_key "relationships", "followers"
   add_foreign_key "reviews", "bookings"
 end
