@@ -10,7 +10,7 @@
             <% if @user.senior == true %>
               <h4 class="profile-name-show text-left">
                 <strong><%= @user.user_name %></strong>
-                <%= image_tag "checkmark.png", style: "width: 2%; margin-bottom: 1%" %>
+                <%= image_tag "checkmark.png", style: "width: 4%; margin-bottom: 1%" %>
               </h4>
               <% else %>
                 <h4 class="profile-name-show text-left">
@@ -32,19 +32,16 @@
         </div>
         <% end %>
 
-          <% if current_user != @user %>
-          <div class="d-flex btns-single-show" style="background: #5753c9;">
+      <% if current_user != @user %>
+        <div class="d-flex btns-single-show" style="background: #5753c9;">
           <% if current_user %>
-  <% if @room.nil? %>
-  <%= link_to "Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
-  <% else %>
-    <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
-
-<% end %>
-
-
-                <p class="d-flex btn-text-show"></p>
-            <% end %>
+            <% if @room.nil? %>
+              <%= link_to "Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
+            <% else %>
+          <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
+          <% end %>
+          <p class="d-flex btn-text-show"></p>
+          <% end %>
         </div>
         <% end %>
 
@@ -85,7 +82,7 @@
 
       <div class="d-flex my-3 justify-content-center">
         <div class="d-flex cards-grid-show">
-          <h3 id="no-bg-box-show" style="border:solid; padding:2vh;" class="boxes-content-show">My Stack</h3>
+          <h3 id="no-bg-box-show" style="border:solid; padding:2vh;" class="boxes-content-show">Stack</h3>
 
           <% @user.top_languages.each do |language| %>
             <div class="boxes-grid-show">
