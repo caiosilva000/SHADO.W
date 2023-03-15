@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [] do
+  resources :users, only: [:index] do
     resources :follows, only: [:create]
   end
   resources :follows, only: ["destroy"]

@@ -5,30 +5,26 @@
         <div class="d-flex justify-content-center pt-5">
         <%= link_to user_path(user), style: 'text-decoration: none;' do %>
           <div class="cards-show">
-
+                        <h4 class="profile-name-show text-left">
+              <strong><%= user.user_name %></strong>
+            </h4>
             <div class="d-flex profile-infos-show">
-
-
               <% if user.profile_pic.present? %>
-                <%= image_tag user.profile_pic, class: "profile-pic-show", style: "margin-right: 15%" %>
+                  <%= image_tag user.profile_pic, class: "profile-pic-show", style: "margin-right: 15%" %>
+                <% else  %>
+                  <%= image_tag "placeholder.png", class: "profile-pic-show", style: "margin-right: 15%" %>
               <% end %>
-                <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= "">
-
+                <img src="https://ghchart.rshah.org/<%= user.github_nickname %>" alt= "" style="margin-bottom:16px;">
             </div>
 
-            <h4 class="profile-name-show text-left">
-              <strong style="padding: 18px;"><%= user.user_name %></strong>
-            </h4>
-            <div class="d-flex justify-content-end">
+
+            <div class="languages d-flex justify-content-end">
               <% user.top_languages.each do |language| %>
                 <div class="boxes-grid-show dashboard-skill">
                   <span class="skill-icons"><i class="<%= @fa_map[language] %> mr-2"></i> <p><%= language %></p> </span>
                 </div>
               <% end %>
             </div>
-
-
-            
           </div>
 
         <% end %>
