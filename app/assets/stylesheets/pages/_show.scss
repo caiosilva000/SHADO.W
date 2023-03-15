@@ -8,7 +8,6 @@
 // PROFILE CARD
 
 .cards-show {
-  height: 250px;
   width: 900px;
   background-color: #272D35;
   padding: 38px;
@@ -19,7 +18,15 @@
   opacity: 0.9;
 }
 
+.name_pic{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .profile-infos-show {
+  display: flex;
   height: 120px;
   margin-top: 29px;
   margin-left: 10px;
@@ -88,7 +95,7 @@
   .btns-single-show {
     background-color: #05595B;
     margin: 16px;
-    width: 123px;
+    width: 128px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -147,21 +154,26 @@
     justify-content: center;
     color: white;
   }
+}
 
-  .skill-icons {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    color: white;
+.skill-icons {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  color: white;
 
-    i {
-      margin-right: 4px;
-    }
-
-    p {
-      margin: unset;
-    }
+  i {
+    margin-right: 4px;
   }
+
+  p {
+    margin: unset;
+  }
+}
+
+.dashboard-skill {
+  margin-right: 16px;
+  width: auto;
 }
 
 .index_list{
@@ -177,4 +189,3 @@
   margin: 10px; /* Optional: add margin to the boxes */
   border: 1px solid #ccc; /* Optional: add border to the boxes */
 }
-

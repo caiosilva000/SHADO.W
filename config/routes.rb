@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'users/show'
+
   resources :rooms, only: [:show, :index, :create] do
+
     resources :messages
   end
   root to: "pages#index"
@@ -28,8 +30,6 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :follows, only: [:create]
   end
-
   resources :follows, only: ["destroy"]
   mount ActionCable.server => '/cable'
-
 end
