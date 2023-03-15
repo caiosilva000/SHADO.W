@@ -19,6 +19,16 @@
             <h4 class="profile-name-show text-left">
               <strong style="padding: 18px;"><%= user.user_name %></strong>
             </h4>
+            <div class="d-flex justify-content-end">
+              <% user.top_languages.each do |language| %>
+                <div class="boxes-grid-show dashboard-skill">
+                  <span class="skill-icons"><i class="<%= @fa_map[language] %> mr-2"></i> <p><%= language %></p> </span>
+                </div>
+              <% end %>
+            </div>
+
+
+            
           </div>
 
         <% end %>
