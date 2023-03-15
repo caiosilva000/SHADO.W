@@ -15,6 +15,8 @@ class PagesController < ApplicationController
   end
 
   def my_profile
+    @users = User.all
+    @random_users = @users.sample
     @user = current_user
     @fa_map = {
       'Ruby' => 'fa-sharp fa-regular fa-gem',
@@ -83,6 +85,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @users = User.all
     @user = User.find(params[:id])
     @follow = Follow.where(follower: current_user, following: @user)
     @fa_map = {
@@ -141,7 +144,7 @@ class PagesController < ApplicationController
     }
     @room_name = get_name(@user, current_user)
     @room = Room.find_by(name: @room_name)
-    
+
   end
 
   def settings
