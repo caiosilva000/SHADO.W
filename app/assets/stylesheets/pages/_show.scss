@@ -196,3 +196,21 @@
   margin: 10px; /* Optional: add margin to the boxes */
   border: 1px solid #ccc; /* Optional: add border to the boxes */
 }
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  transition: left 0.5s;
+}
+
+#popup.hidden {
+  left: -100%;
+}
+
+#popup:not(.hidden) {
+  left: 0;
+}
