@@ -54,9 +54,6 @@
       <% end %>
 
       <%= link_to root_path, class: "searchbar_button" do %>
-        <i class="fa-solid fa-message"></i>
-      <% end %>
-      <%= link_to root_path, class: "searchbar_button" do %>
         <i class="fa-solid fa-bell"></i>
       <% end %>
     </div>
@@ -96,11 +93,10 @@
 
 }
 .searchbar{
-  width: 74%;
+  width: 280%;
   height: 5vh;
   margin: 20px;
   border-radius: 20px;
-  padding: 25px 299px;
   background: #272D35;
   color: #C4C4C4;
   margin-left: 15%;
@@ -108,5 +104,19 @@
   opacity: 0.8;
   outline: none;
 }
-
+.searchbar_button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background: #272D35;
+  color: #C4C4C4;
+  border-radius: 20px;
+  width: 5%;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0.8;
+  margin-left: 50%;
+}
 </style>

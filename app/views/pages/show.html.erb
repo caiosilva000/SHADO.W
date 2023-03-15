@@ -1,8 +1,4 @@
 <div class="container">
-
-
-
-
   <div class="top_card">
     <div class="profile_top">
     <% if @user.profile_pic.nil?  %>
@@ -10,7 +6,17 @@
     <% else %>
       <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
     <% end %>
-      <h4 class="profile-name-show"><strong><%= @user.github_nickname %></strong></h4></h4>
+
+            <% if @user.senior == true %>
+              <h4 class="profile-name-show text-left">
+                <strong><%= @user.user_name %></strong>
+                <%= image_tag "checkmark.png", style: "width: 2%; margin-bottom: 1%" %>
+              </h4>
+              <% else %>
+                <h4 class="profile-name-show text-left">
+                  <strong><%= @user.user_name %></strong>
+                </h4>
+              <% end %>
 
         <div class="bio-box-show">
           <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
@@ -35,7 +41,6 @@
     <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
 
 <% end %>
-
 
 
                 <p class="d-flex btn-text-show"></p>
