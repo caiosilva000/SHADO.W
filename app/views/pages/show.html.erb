@@ -1,7 +1,23 @@
 <div class="container">
+
+<% if current_user %>
+  <% if @room.nil? %>
+  <%= link_to "start Chatting", rooms_path(user_id: @user.id), data: { turbo_method: "post" }  %>
+  <% else %>
+    <%= link_to "Message", room_path(@room) %>
+    <% end %>
+<% end %>
+
+
+
+
   <div class="top_card">
     <div class="profile_top">
+    <% if @user.profile_pic.nil?  %>
+    <%=  '' %>
+    <% else %>
       <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
+    <% end %>
       <h4 class="profile-name-show"><strong><%= @user.github_nickname %></strong></h4></h4>
 
         <div class="bio-box-show">
@@ -99,3 +115,7 @@
     </div>
   </div>
 </div>
+
+</div>
+</div>
+

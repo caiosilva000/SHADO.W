@@ -139,6 +139,8 @@ class PagesController < ApplicationController
       'XML' => 'fas fa-code',
       'XSLT' => 'fas fa-code'
     }
+    @room_name = get_name(@user, current_user)
+    @room = Room.find_by(name: @room_name)
   end
 
   def settings
@@ -205,5 +207,9 @@ class PagesController < ApplicationController
     else
       @users = User.all
     end
+  end
+
+  def get_name(user1, user2)
+    "Chat: #{user1.github_nickname} & #{user2.github_nickname}"
   end
 end
