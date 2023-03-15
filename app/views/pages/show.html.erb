@@ -1,13 +1,5 @@
 <div class="container">
 
-<% if current_user %>
-  <% if @room.nil? %>
-  <%= link_to "start Chatting", rooms_path(user_id: @user.id), data: { turbo_method: "post" }  %>
-  <% else %>
-    <%= link_to "Message", room_path(@room) %>
-    <% end %>
-<% end %>
-
 
 
 
@@ -36,8 +28,16 @@
 
           <% if current_user != @user %>
           <div class="d-flex btns-single-show" style="background: #5753c9;">
-            <% if current_user %>
-              <%= link_to "Chat", rooms_path, style: "text-decoration:none; color:white;"  %>
+          <% if current_user %>
+  <% if @room.nil? %>
+  <%= link_to "Send Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
+  <% else %>
+    <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
+
+<% end %>
+
+
+
                 <p class="d-flex btn-text-show"></p>
             <% end %>
         </div>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="d-flex btns-single-show"
-<p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
+    class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
         </div>
       </div>
 
@@ -118,4 +118,3 @@
 
 </div>
 </div>
-

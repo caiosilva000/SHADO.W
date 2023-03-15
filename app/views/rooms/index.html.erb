@@ -1,23 +1,89 @@
-<div id="chatroom_container" class="row bg-dark text-light">
-  <div id="side_panel" class="col-md-4 col-sm-4">
-    <h5> <%= current_user.github_nickname %> </h5>
-    <h4> Users </h4>
-    <%= turbo_stream_from "users" %>
-    <% @rooms.each do |room| %>
-    <%= link_to room.name, room_path(room) %>
-    <% end %>
-  </div>
-  <div id="room_container"
-  class="col-md-8 col-sm-8 bg-dark text-light">
-    <% if @single_room %>
-      <div id="single_room">
-        <h4 class="text-center"> <%= @user&.email || @single_room.name %> </h4>
-        <%= turbo_stream_from @single_room %>
-        <div id="messages">
-          <%= render @messages %>
-        </div>
-        <%= render 'layouts/new_message_form' %>
+<div class="page-container">
+<body>
+  <div id="chatroom_container" class="row bg-dark text-light">
+    <div id="side_panel" class="col-md-4 col-sm-4">
+     
+      <h4>My Chats</h4>
+      <%= turbo_stream_from "users" %>
+      <% @rooms.each do |room| %>
+      <div>
+        <%= link_to room.name, room_path(room) %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div id="room_container" class="col-md-8 col-sm-8 bg-dark text-light">
+      <% if @single_room %>
+        <div id="single_room">
+          <h4 class="text-center"><%= @user&.email || @single_room.name %></h4>
+          <%= turbo_stream_from @single_room %>
+          <div id="messages">
+            <%= render @messages %>
+          </div>
+          <%= render 'layouts/new_message_form' %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</body>
 </div>
+<style>
+
+ .page {
+    overflow: hidden;
+  }
+
+  .msg-form {
+    width: 100%;
+    height: 56px;
+    padding: 10px;
+  }
+
+  #single_room {
+    height: calc(100vh - 150px);
+  }
+
+  #messages {
+    height: calc(100vh - 150px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  #room_container {
+    height: 100vh;
+    margin-right: 0px !important;
+  }
+
+  #side_panel {
+    height: 100vh;
+    margin-right: 0px !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 55px;
+  }
+
+
+  #chatroom_container {
+    height: 100vh;
+    margin-right: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+  }
+
+  .msg-content {
+    width: 50%;
+    margin-right: 5px;
+  }
+
+  .message-box {
+    word-wrap: break-word;
+    max-width: 60%;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #555555;
+    padding: 10px;
+  }
+
+</style>

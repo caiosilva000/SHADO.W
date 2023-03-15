@@ -141,6 +141,7 @@ class PagesController < ApplicationController
     }
     @room_name = get_name(@user, current_user)
     @room = Room.find_by(name: @room_name)
+    
   end
 
   def settings
@@ -201,6 +202,8 @@ class PagesController < ApplicationController
       'XML' => 'fas fa-code',
       'XSLT' => 'fas fa-code'
     }
+    @room = Room.all
+
     if params[:query].present?
       sql_query = "user_name ILIKE :query OR github_nickname ILIKE :query"
       @users = User.where(sql_query, query: "%#{params[:query]}%")

@@ -13,5 +13,8 @@ application.register("flatpickr", FlatpickrController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import PopupController from "./popup_controller"
+application.register("popup", PopupController)
+
 import VideoBackgroundController from "./video_background_controller"
 application.register("video-background", VideoBackgroundController)

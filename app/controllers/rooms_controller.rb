@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @room = Room.new
-    raise
+    @rooms = Room.all
   end
 
   def show
