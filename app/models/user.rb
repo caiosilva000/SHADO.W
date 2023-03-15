@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :reviews, through: :bookings
   # validates :user_name, presence: true
   # validates :profile_pic, presence: true
-  has_many :contributions
+  # has_many :contributions
   has_many :bookings_as_booker, class_name: "Booking", foreign_key: :booker_id
   has_many :bookings_as_bookee, class_name: "Booking", foreign_key: :bookee_id
   scope :all_except, -> (user) { where.not(id: user) }
@@ -36,13 +36,15 @@ after_create_commit { broadcast_append_to "user was created"}
     repos = client.repos(nil, sort: :updated)
     languages = repos.map { |repo| repo.language }.compact
     top_languages = languages.present? ? languages.uniq.first(5) : []
+    github_user = client.user data['nickname']
 
     user.update(
       access_token: access_token.credentials.token,
       github_uid: access_token.uid,
       github_nickname: data['nickname'],
       profile_pic: data['image'],
-      top_languages: top_languages # Update the user's top languages in the database
+      top_languages: top_languages, # Update the user's top languages in the database
+      senior: github_user.created_at.strftime("%Y").to_i < 2021
     )
 
     user

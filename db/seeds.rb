@@ -115,7 +115,8 @@ end
     user_name: github_nickname,
     profile_pic: user_data["avatar_url"],
     github_nickname: github_nickname,
-    top_languages: top_languages
+    top_languages: top_languages,
+    senior: user_data["created_at"].strftime("%Y").to_i < 2021
   )
 
   rand(1..10).times do
@@ -128,3 +129,9 @@ end
   end
 end
 end
+
+
+
+
+# check if account was created before 2021 (for senior attribute)
+# senior = user_data["created_at"].strftime("%Y").to_i < 2021
