@@ -10,6 +10,7 @@ require 'json'
 require 'dotenv-rails'
 
 Dotenv.load
+
 Room.destroy_all
 Booking.destroy_all
 Availability.destroy_all
