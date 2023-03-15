@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'net/http'
 
-Dotenv.load
+
 Room.destroy_all
 Booking.destroy_all
 Availability.destroy_all
