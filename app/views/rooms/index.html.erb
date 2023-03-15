@@ -3,12 +3,11 @@
   <div id="chatroom_container" class="row bg-dark text-light">
     <div id="side_panel" class="col-md-4 col-sm-4">
 
-
-      <h4 style="display: flex;justify-content: center;background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; width: 100%;height: 10%;border-radius: 10px;align-items: center;color: #bcafbc; margin-bottom:5%;">My Chats</h4>
+      <h4 style="display: flex; justify-content: center; background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; width: 100%;height: 10%;border-radius: 10px;align-items: center;color: #bcafbc; margin-bottom:5%;">My Chats</h4>
       <%= turbo_stream_from "users" %>
       <% @rooms.each do |room| %>
       <div>
-        <h5><%= link_to room.name, room_path(room),class: "d-flex justify-content-center", style: "text-decoration: none; color:#999af0;" %></h5>
+        <h5 ><%= link_to room.name, room_path(room),class: "d-flex justify-content-center align-items-center", style: "text-decoration: none; color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important; height: 15vh; width: 100%; background-color: #2c9d888a; border-radius: 10px;" %></h5>
       </div>
       <% end %>
     </div>
@@ -94,6 +93,10 @@
     margin-bottom: 10px;
     background: #2c9d888a;
     padding: 10px;
+  }
+
+  .chatrooms_left{
+
   }
 
 </style>
