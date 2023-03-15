@@ -2,12 +2,13 @@
 <body>
   <div id="chatroom_container" class="row bg-dark text-light">
     <div id="side_panel" class="col-md-4 col-sm-4">
-     
-      <h4>My Chats</h4>
+
+
+      <h4 style="display: flex;justify-content: center;background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; width: 100%;height: 10%;border-radius: 10px;align-items: center;color: #bcafbc;">My Chats</h4>
       <%= turbo_stream_from "users" %>
       <% @rooms.each do |room| %>
       <div>
-        <%= link_to room.name, room_path(room) %>
+        <%= link_to room.name, room_path(room),class: "d-flex justify-content-center", style: "text-decoration: none;" %>
       </div>
       <% end %>
     </div>
@@ -15,7 +16,7 @@
     <div id="room_container" class="col-md-8 col-sm-8 bg-dark text-light">
       <% if @single_room %>
         <div id="single_room">
-          <h4 class="text-center"><%= @user&.email || @single_room.name %></h4>
+          <%# <h4 class="text-center"><%= @user&.email || @single_room.name %></h4>
           <%= turbo_stream_from @single_room %>
           <div id="messages">
             <%= render @messages %>
@@ -52,6 +53,7 @@
   #room_container {
     height: 100vh;
     margin-right: 0px !important;
+    padding: 5%;
   }
 
   #side_panel {
@@ -60,6 +62,12 @@
     overflow-x: hidden;
     overflow-y: scroll;
     margin-bottom: 55px;
+    background-color: #272D35;
+    padding: 2%;
+    border-right: solid;
+    border-right-color: #92929278;
+    border-width: 1px;
+    color: #D5BEBE;
   }
 
 
@@ -68,6 +76,8 @@
     margin-right: 0px !important;
     overflow-x: hidden;
     overflow-y: hidden;
+    border-radius: 10px;
+    margin-bottom: 2%;
 
   }
 
@@ -82,7 +92,7 @@
     padding: 5px;
     border-radius: 10px;
     margin-bottom: 10px;
-    background-color: #555555;
+    background: #2c9d888a;
     padding: 10px;
   }
 

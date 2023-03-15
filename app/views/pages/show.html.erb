@@ -30,7 +30,7 @@
           <div class="d-flex btns-single-show" style="background: #5753c9;">
           <% if current_user %>
   <% if @room.nil? %>
-  <%= link_to "Send Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
+  <%= link_to "Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
   <% else %>
     <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
 
