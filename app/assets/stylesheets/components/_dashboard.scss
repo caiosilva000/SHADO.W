@@ -69,11 +69,10 @@
 }
 
 .searchbar{
-  width: 74%;
+  width: 280%;
   height: 5vh;
   margin: 20px;
   border-radius: 20px;
-  padding: 25px 200px;
   background: #272D35;
   color: #C4C4C4;
   margin-left: 15%;
@@ -81,8 +80,6 @@
   opacity: 0.8;
   outline: none;
 }
-
-
 .searchbar_button {
   text-align: center;
   display: flex;
@@ -96,8 +93,9 @@
   justify-content: center;
   text-decoration: none;
   opacity: 0.8;
-  margin-left: 0%;
+  margin-left: 50%;
 }
+
 
 .searchbar_button:hover{
   color: #F8F8F8
