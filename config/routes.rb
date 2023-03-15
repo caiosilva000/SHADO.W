@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
-  resources :rooms do
+  resources :rooms, only: [:show, :index, :create] do
     resources :messages
   end
   root to: "pages#index"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/my_profile', to: 'pages#my_profile', as: 'my_profile'
   get '/my_settings', to: 'pages#my_settings', as: 'my_settings'
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
-  get '/users/:id', to: 'users#show', as: 'user'
+  get '/users/:id', to: 'pages#show', as: 'user'
   resources :bookings, only: [] do
     member do
       get 'thank_you'
@@ -29,9 +29,6 @@ Rails.application.routes.draw do
     resources :follows, only: [:create]
   end
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
   resources :follows, only: ["destroy"]
   mount ActionCable.server => '/cable'
 
