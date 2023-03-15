@@ -1,12 +1,11 @@
 <div id="chatroom_container" class="row bg-dark text-light">
   <div id="side_panel" class="col-md-4 col-sm-4">
-    <h5> <%= current_user.email %> </h5>
+    <h5> <%= current_user.github_nickname %> </h5>
     <h4> Users </h4>
     <%= turbo_stream_from "users" %>
-    <div id="users">
-      <%= render @users %>
-    </div>
-
+    <% @rooms.each do |room| %>
+    <%= link_to room.name, room_path(room) %>
+    <% end %>
   </div>
   <div id="room_container"
   class="col-md-8 col-sm-8 bg-dark text-light">
