@@ -4,11 +4,11 @@
     <div id="side_panel" class="col-md-4 col-sm-4">
 
 
-      <h4 style="display: flex;justify-content: center;background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; width: 100%;height: 10%;border-radius: 10px;align-items: center;color: #bcafbc;">My Chats</h4>
+      <h4 style="display: flex;justify-content: center;background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; width: 100%;height: 10%;border-radius: 10px;align-items: center;color: #bcafbc; margin-bottom:5%;">My Chats</h4>
       <%= turbo_stream_from "users" %>
       <% @rooms.each do |room| %>
       <div>
-        <%= link_to room.name, room_path(room),class: "d-flex justify-content-center", style: "text-decoration: none;" %>
+        <h5><%= link_to room.name, room_path(room),class: "d-flex justify-content-center", style: "text-decoration: none; color:#999af0;" %></h5>
       </div>
       <% end %>
     </div>
