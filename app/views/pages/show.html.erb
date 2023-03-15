@@ -1,7 +1,15 @@
 <div class="container">
+
+
+
+
   <div class="top_card">
     <div class="profile_top">
+    <% if @user.profile_pic.nil?  %>
+    <%=  '' %>
+    <% else %>
       <%= image_tag @user.profile_pic , class: "profile_pic_show" %>
+    <% end %>
       <h4 class="profile-name-show"><strong><%= @user.github_nickname %></strong></h4></h4>
 
         <div class="bio-box-show">
@@ -11,13 +19,32 @@
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex stats-btns-box-show">
 
+        <% if current_user != @user %>
         <div class="d-flex btns-single-show" style="background: white">
             <%= link_to "Book", new_user_booking_path(@user), style: "text-decoration:none; color:#05595B" %>
           <p class="d-flex btn-text-show"></p>
         </div>
+        <% end %>
+
+          <% if current_user != @user %>
+          <div class="d-flex btns-single-show" style="background: #5753c9;">
+          <% if current_user %>
+  <% if @room.nil? %>
+  <%= link_to "Send Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
+  <% else %>
+    <%= link_to "Message", room_path(@room),style: "text-decoration:none; color:white;" %>
+
+<% end %>
+
+
+
+                <p class="d-flex btn-text-show"></p>
+            <% end %>
+        </div>
+        <% end %>
 
          <% if current_user != @user %>
-          <div class="d-flex btns-single-show" style="background-color:#27aecd;">
+          <div class="d-flex btns-single-show" style="background-color:#8c518c">
             <% if @follow && @follow.any? %>
               <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete }, style: "text-decoration:none; color:white;" %>
             <% else %>
@@ -25,15 +52,14 @@
             <% end %>
           </div>
         <% end %>
-              <div class="d-flex btns-single-show">
-            <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
+
+
+        <div class="d-flex btns-single-show">
+          <p class="d-flex btn-text-show"> Followers <%= @user.followers.count %></p>
         </div>
+
         <div class="d-flex btns-single-show"
-
-
-
-
-          <p class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
+    class="d-flex btn-text-show" > Following <%= @user.following.count %></p>
         </div>
       </div>
 
@@ -84,14 +110,11 @@
 
 
 
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 </div>
 </div>
-
-<% if current_user %>
-<%= link_to "start Chatting", rooms_path %>
-<% end %>
-

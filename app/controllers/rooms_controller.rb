@@ -4,26 +4,30 @@ class RoomsController < ApplicationController
   def index
     @room = Room.new
     @rooms = Room.all
-    @users = User.all_except(current_user)
+
   end
 
   def show
-    @user = User.find(params[:id])
     @users = User.all_except(current_user)
 
     @room = Room.new
-    @rooms = Room.public_rooms
-    @room_name = get_name(@user, current_user)
-    @single_room = Room.where(name: @room_name).first || Room.create_private_room([@user, current_user], @room_name)
+    @single_room = Room.find(params[:id])
 
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
+    @rooms = Room.where("name ilike ?", "%#{current_user.github_nickname}%")
     render 'rooms/index'
   end
 
   def create
-    @room = Room.create(name: params["room"] ["name"])
+    @room = Room.new
+    @user = User.find(params[:user_id])
+    @room.name = get_name(@user, current_user)
+    @room.save
+    redirect_to room_path(@room)
   end
 
-
+  def get_name(user1, user2)
+    "Chat: #{user1.github_nickname} & #{user2.github_nickname}"
+  end
 end

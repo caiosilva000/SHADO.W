@@ -14,7 +14,8 @@
         <%= link_to root_path, class: "nav-link" do %>
           <i class="fa-solid fa-house"></i><p> Dashboard</p>
         <% end %>
-        <%= link_to root_path, class: "nav-link" do %>
+
+        <%= link_to rooms_path, class: "nav-link" do %>
           <i class="fa-solid fa-message"></i><p> Messages</p>
         <% end %>
         <%= link_to root_path, class: "nav-link" do %>
@@ -42,7 +43,7 @@
 
   <div class="right_side">
     <div class="search_top">
-      <%= form_with url: users_path, method: :get do %>
+      <%= form_with url: root_path, method: :get do %>
         <div>
           <%= text_field_tag :query,
             params[:query],
@@ -59,9 +60,7 @@
         <i class="fa-solid fa-bell"></i>
       <% end %>
     </div>
-
     <%= yield %>
-
   </div>
 </div>
 
