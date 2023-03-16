@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :show, :index]
   end
   resources :availabilities, only: [:new, :create]
   get '/users', to: 'pages#index'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/my_settings', to: 'pages#my_settings', as: 'my_settings'
   get '/my_bookings', to: 'pages#my_bookings', as: 'my_bookings'
   get '/users/:id', to: 'pages#show', as: 'user'
+  get '/bookings', to: 'bookings#index'
   resources :bookings, only: [] do
     member do
       get 'thank_you'

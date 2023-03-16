@@ -18,10 +18,11 @@
         <%= link_to rooms_path, class: "nav-link" do %>
           <i class="fa-solid fa-message"></i><p> Messages</p>
         <% end %>
-        <%= link_to root_path, class: "nav-link" do %>
-          <i class="fa-solid fa-money-check"></i><p> Payments</p>
+              <%= link_to user_bookings_path(current_user), class: "nav-link" do %>
+          <i class="fa-solid fa-calendar-days"></i><p>Bookings</p>
         <% end %>
       </div>
+
 
       <div class="sidebar_userlinks hidden">
         <div>
