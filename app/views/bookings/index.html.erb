@@ -1,13 +1,12 @@
-<h1>All Bookings</h1>
+<h1 id="bookings_header">Bookings</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Duration</th>
-      <th>Bookee</th>
-      <th>Booker</th>
+      <th>Hours</th>
+      <th>Mentor</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
         <td><%= booking.start_date.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= booking.end_date.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= booking.duration %></td>
-        <td><%= booking.bookee.email %></td>
         <td><%= booking.booker.email %></td>
         <td>
           <%= link_to 'View', user_booking_path(booking.booker, booking), class: 'btn btn-primary' %>
