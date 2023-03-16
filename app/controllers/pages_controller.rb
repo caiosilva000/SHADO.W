@@ -216,6 +216,6 @@ class PagesController < ApplicationController
   end
 
   def get_name(user1, user2)
-    "Chat: #{user1.github_nickname} & #{user2.github_nickname}"
+    "#{user1.github_nickname} | #{user2.github_nickname}"
   end
 end
