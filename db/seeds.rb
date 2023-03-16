@@ -43,10 +43,6 @@ end
 
 # Students
 students = [
-  "caiosilva000",
-  "giuliazeni",
-  "JDuub",
-  "guyberthol",
   "kikarikiki",
   "Dillontsteele",
   "Martinisthename",
