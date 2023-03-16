@@ -86,7 +86,7 @@
           <h3 id="no-bg-box-show" style="border:solid; padding:2vh;" class="boxes-content-show">Stack</h3>
 
           <% @user.top_languages.each do |language| %>
-            <div class="boxes-grid-show">
+            <div class="boxes-grid-show" style="box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);">
               <span class="skill-icons"><i class="<%= @fa_map[language] %> mr-2"></i> <p><%= language %></p> </span>
             </div>
           <% end %>
