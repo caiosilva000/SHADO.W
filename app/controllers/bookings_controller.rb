@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @availability = Availability.create(user: @booker, start_date: params[:booking][:start_date], end_date: params[:booking][:end_date])
     @booking.availability = @availability
     if @booking.save
-      redirect_to user_path(current_user), notice: 'Booking was successfully created.'
+      redirect_to user_bookings_path(current_user), notice: 'Booking was successfully created.'
     else
     end
   end
