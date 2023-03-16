@@ -3,6 +3,9 @@
 #no-bg-box-show {
   background-color: #272D35;
   width: 153px;
+  display: flex;
+  justify-content: center;
+  background: none;
 }
 
 // PROFILE CARD
@@ -88,11 +91,13 @@
 // STATS BUTTONS
 
 .stats-btns-box-show{
+  height: 5rem;
   width: 450;
   color: white;
   text-decoration: none;
 
   .btns-single-show {
+    font-size: 120%;
     background-color: #05595B;
     margin: 16px;
     width: 128px;
@@ -120,7 +125,8 @@
 .cards-grid-show {
   height: 250px;
   width: 900px;
-  background-color: #272D35;
+  // background-color: #272D35;
+  background: linear-gradient(to right, #0a1417, #5e8383);
   border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -132,6 +138,13 @@
   margin: 10px;
   opacity: 0.9;
   color: white;
+}
+
+.github_logo{
+  background: #3eb13b;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: -2rem;
 }
 
 .boxes-grid-show {
