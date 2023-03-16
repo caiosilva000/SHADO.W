@@ -4,27 +4,27 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs" style="color: #C4C4C4">
-    <%= f.input :email, hint: "Enter E-mail here", required: true, autofocus: true, input_html: { style: 'border-radius: 10px; width: 80vh;' } %>
+  <div class="form-inputs" style="color: #white">
+    <%= f.input :email, required: true, autofocus: true, input_html: { style: 'border-radius: 10px; width: 80vh;' } %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <%= f.input :password,
-                hint: "Leave it blank if you don't want to change it",
+                # hint: "Leave it blank if you don't want to change it",
                 required: false,
-                input_html: { autocomplete: "new-password", style: "border-radius: 10px; width: 80vh"} %>
+                input_html: { autocomplete: "new-password", style: "border-radius: 10px; width: 80vh;"} %>
     <%= f.input :password_confirmation,
-                hint: "We need you to confirm your new password here",
+                # hint: "We need you to confirm your new password here",
                 required: false,
                 input_html: { autocomplete: "new-password", style: "border-radius: 10px; width: 80vh"} %>
     <%= f.input :current_password,
-                hint: "We need your current password to confirm your changes",
+                # hint: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password", style: "border-radius: 10px; width: 80vh"} %>
         <%= f.input :bio,
-                hint: "Let others know about yourself",
+                # hint: "Let others know about yourself",
                 required: false,
                 input_html: { style: "border-radius: 10px; width: 80vh"} %>
   </div>
