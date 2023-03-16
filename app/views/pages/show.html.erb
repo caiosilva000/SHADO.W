@@ -11,8 +11,8 @@
 
             <% if @user.senior == true %>
               <h4 class="profile-name-show text-left">
-                <strong><%= @user.user_name %></strong>
-                <%= image_tag "checkmark.png", style: "width: 4%; margin-bottom: 1%" %>
+                <strong style="color:white"><%= @user.user_name %></strong>
+                <%= image_tag "checkmark5.png", style: "width: 4%; margin-bottom: 1%" %>
               </h4>
               <% else %>
                 <h4 class="profile-name-show text-left">
@@ -21,7 +21,8 @@
               <% end %>
 
         <div class="bio-box-show">
-          <p class="bio-text-show"><small>Biography: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut lab</small></p>
+          <p class="bio-text-show"><small>Hi, I'm Martin, a junior tech developer with a passion for using technology to solve complex problems. Ever since I was a kid, I loved tinkering with gadgets and figuring out how things work. That's what led me to pursue a degree in Computer Science and launch my career in the tech industry.
+          As a junior developer, I quickly realized that the industry is constantly evolving, and it can be challenging to keep up with the latest trends and technologies. That's why I started looking for mentorship and guidance to help me grow in my career.<small></p>
         </div>
 
     <div class="d-flex my-3 justify-content-center">
@@ -35,7 +36,7 @@
         <% end %>
 
       <% if current_user != @user %>
-        <div class="d-flex btns-single-show" style="background: #5753c9;">
+        <div class="d-flex btns-single-show" style="background: #262279;">
           <% if current_user %>
             <% if @room.nil? %>
               <%= link_to "Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
@@ -48,7 +49,7 @@
         <% end %>
 
          <% if current_user != @user %>
-          <div class="d-flex btns-single-show" style="background-color:#8c518c">
+          <div class="d-flex btns-single-show" style="background-color:#272D35">
             <% if @follow && @follow.any? %>
               <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete }, style: "text-decoration:none; color:white;" %>
             <% else %>
@@ -68,18 +69,18 @@
       </div>
 
 
- </div>
+  </div>
     </div>
       <div class="d-flex my-3 justify-content-center">
         <div class="d-flex cards-grid-show">
-          <div class="boxes-grid-show">
-            <h3 id="no-bg-box-show" class= "boxes-content-show">Git Hub</h3>
+        <div class="github_logo">
+          <%= image_tag "Github.png", style: "height: 7rem;" %>
           </div>
           <div>
             <img src="https://ghchart.rshah.org/<%= @user.github_nickname %>" alt="GitHub contributions chart">
           </div>
         </div>
-      </div>
+    </div>
 
 
       <div class="d-flex my-3 justify-content-center">
@@ -95,10 +96,20 @@
         </div>
 
 
+    <div class="d-flex my-3 justify-content-center">
+      <div class="d-flex cards-grid-show">
+        <div>
+          <h3 id="no-bg-box-show" class="boxes-content-show" style="border-right: solid; border-right-color: #87ADAE29; border-right-width: 2.5px; padding-right: 3rem;">Mentors</h3>
+        </div>
+        <% @users.shuffle.first(4).each do |user| %>
+          <div>
+            <%= image_tag user.profile_pic, class: "profile-pic-show rounded-circle", style: "margin-right: 1rem; width: 6rem; height: 6rem; margin: 5px; margin-bottom: 10px;" %>
+            <h4 class="profile-name-show text-center">
+              <h6 style="display: flex;justify-content: center;"><%= user.user_name %></h6>
+            </h4>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-
-</div>
 </div>
