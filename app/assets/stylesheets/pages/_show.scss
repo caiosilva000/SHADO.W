@@ -5,6 +5,7 @@
   width: 153px;
   display: flex;
   justify-content: center;
+  background: none;
 }
 
 // PROFILE CARD
@@ -124,7 +125,8 @@
 .cards-grid-show {
   height: 250px;
   width: 900px;
-  background-color: #272D35;
+  // background-color: #272D35;
+  background: linear-gradient(to right, #0a1417, #5e8383);
   border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

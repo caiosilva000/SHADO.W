@@ -95,8 +95,8 @@
 
     <div class="d-flex my-3 justify-content-center">
       <div class="d-flex cards-grid-show">
-        <div class="boxes-grid-show">
-          <h3 id="no-bg-box-show" class="boxes-content-show" style="border-right: solid; border-right-color: #87ADAE29; border-right-width: 2.5px; height: 13rem; padding-right: 3rem;">Mentors</h3>
+        <div>
+          <h3 id="no-bg-box-show" class="boxes-content-show" style="border-right: solid; border-right-color: #87ADAE29; border-right-width: 2.5px; padding-right: 3rem;">Mentors</h3>
         </div>
         <% @users.shuffle.first(4).each do |user| %>
           <div>
