@@ -1,10 +1,10 @@
 <div class = "container booking-success mt-3">
-<h1>Your booking with <%= @booking.bookee.first_name %> was created 🎉</h1>
+<h1>Your booking with <%= @booking.booker %> was created 🎉</h1>
 
 <strong>Details:</strong>
 
-<p >Reference: <%= @booking.bookee.last_name  %> - X5768 </p>
-<p class="list-group-item list-group-item-dark"  >First Name: <%= @booking.bookee.first_name  %> <%= @booking.bookee.last_name  %></p>
+<p >Reference: <%= @booking.booker %> - X5768 </p>
+<p class="list-group-item list-group-item-dark"  >First Name: <%= @booking.booker  %> <%= @booking.booker  %></p>
 <p class="list-group-item list-group-item-dark">Total: 55$</p>
 
 <%= link_to "Book another Mentor", user_path %>
