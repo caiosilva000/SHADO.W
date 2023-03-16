@@ -3,6 +3,8 @@
 #no-bg-box-show {
   background-color: #272D35;
   width: 153px;
+  display: flex;
+  justify-content: center;
 }
 
 // PROFILE CARD
@@ -88,6 +90,7 @@
 // STATS BUTTONS
 
 .stats-btns-box-show{
+  height: 5rem;
   width: 450;
   color: white;
   text-decoration: none;

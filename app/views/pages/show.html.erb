@@ -33,7 +33,7 @@
         <% end %>
 
       <% if current_user != @user %>
-        <div class="d-flex btns-single-show" style="background: #5753c9;">
+        <div class="d-flex btns-single-show" style="background: #262279;">
           <% if current_user %>
             <% if @room.nil? %>
               <%= link_to "Message", rooms_path(user_id: @user.id), data: { turbo_method: "post" }, style: "text-decoration:none; color:white;"  %>
@@ -46,7 +46,7 @@
         <% end %>
 
          <% if current_user != @user %>
-          <div class="d-flex btns-single-show" style="background-color:#8c518c">
+          <div class="d-flex btns-single-show" style="background-color:#272D35">
             <% if @follow && @follow.any? %>
               <%= link_to "Unfollow", follow_path(@follow.take), method: :delete, data: { turbo_method: :delete }, style: "text-decoration:none; color:white;" %>
             <% else %>
@@ -99,9 +99,9 @@
     </div>
     <% @users.shuffle.first(4).each do |user| %>
       <div>
-        <%= image_tag user.profile_pic, class: "profile-pic-show rounded-circle", style: "margin-right: 15%; width: 70%; height: auto;" %>
+        <%= image_tag user.profile_pic, class: "profile-pic-show rounded-circle", style: "margin-right: 1rem; width: 6rem; height: 6rem; margin: 5px; margin-bottom: 10px;" %>
         <h4 class="profile-name-show text-center">
-          <h6><%= user.user_name %></h6>
+          <h6 style="display: flex;justify-content: center;"><%= user.user_name %></h6>
         </h4>
       </div>
     <% end %>
